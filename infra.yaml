@@ -9,4 +9,6 @@ spec:
   ref:
     branch: main
   url: https://gitlab.com/kuft/infra
+  secretRef:
+    name: flux-system
 
