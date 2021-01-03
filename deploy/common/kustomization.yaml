@@ -3,3 +3,6 @@ kind: Kustomization
 
 bases:
 - git::https://github.com/prometheus-operator/kube-prometheus.git?ref=v0.7.0
+
+resources:
+- eck.yaml
