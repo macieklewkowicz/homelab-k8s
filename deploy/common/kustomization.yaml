@@ -4,3 +4,4 @@ kind: Kustomization
 resources:
 - eck.yaml
 - elasticsearch.yaml
+- kibana.yaml
