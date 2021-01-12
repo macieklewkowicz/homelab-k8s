@@ -14,7 +14,7 @@ spec:
   releaseName: prometheus
   chart:
     spec:
-      chart: prometheus
+      chart: kube-prometheus-stack
       sourceRef:
         kind: HelmRepository
         name: prometheus-community
@@ -22,20 +22,4 @@ spec:
   install:
     remediation:
       retries: 3
----
-apiVersion: helm.toolkit.fluxcd.io/v2beta1
-kind: HelmRelease
-metadata:
-  name: grafana
-spec:
-  releaseName: grafana
-  chart:
-    spec:
-      chart: grafana
-      sourceRef:
-        kind: HelmRepository
-        name: prometheus-community
-  interval: 1m
-  install:
-    remediation:
-      retries: 3
+
