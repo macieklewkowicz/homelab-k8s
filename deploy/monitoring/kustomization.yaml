@@ -2,5 +2,6 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
-- prometheus.yaml
-- eck.yaml
+- beats.yaml
+- elasticsearch.yaml
+- kibana.yaml
