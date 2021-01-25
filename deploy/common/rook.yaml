@@ -17,7 +17,7 @@ metadata:
   name: rook-ceph
 spec:
   releaseName: rook-ceph
-  targetNamespace: default
+  targetNamespace: rook-ceph
   chart:
     spec:
       chart: rook-ceph
