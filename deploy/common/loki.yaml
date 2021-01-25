@@ -7,7 +7,6 @@ apiVersion: source.toolkit.fluxcd.io/v1beta1
 kind: HelmRepository
 metadata:
   name: grafana
-  namespace: loki-stack
 spec:
   interval: 5m
   url: https://grafana.github.io/helm-charts
@@ -16,7 +15,6 @@ apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: loki-stack
-  namespace: loki-stack
 spec:
   releaseName: loki-stack
   targetNamespace: loki-stack
