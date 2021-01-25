@@ -3,5 +3,5 @@ kind: Kustomization
 
 resources:
 #- loki.yaml
-#- rook.yaml
+- rook.yaml
 #- ceph-cluster.yaml
