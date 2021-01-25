@@ -4,4 +4,4 @@ kind: Kustomization
 resources:
 #- loki.yaml
 - rook.yaml
-#- ceph-cluster.yaml
+- ceph-cluster.yaml
