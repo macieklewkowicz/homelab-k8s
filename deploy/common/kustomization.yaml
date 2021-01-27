@@ -6,4 +6,4 @@ resources:
 - rook.yaml
 - rook-toolbox.yaml
 - ceph-cluster.yaml
-#- test-pvc.yaml
+- test-pvc.yaml
