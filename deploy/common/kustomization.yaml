@@ -5,5 +5,5 @@ resources:
 - loki.yaml
 - rook.yaml
 #- rook-toolbox.yaml
-#- ceph-cluster.yaml
+- ceph-cluster.yaml
 #- test-pvc.yaml
