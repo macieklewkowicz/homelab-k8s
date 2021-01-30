@@ -8,3 +8,4 @@ resources:
 - ceph-cluster.yaml
 - ceph-storageclass.yaml
 - percona.yaml
+- xtradb-cluster.yaml
