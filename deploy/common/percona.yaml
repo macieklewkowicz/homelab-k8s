@@ -28,14 +28,4 @@ spec:
   install:
     remediation:
       retries: 3
-  values:
-    grafana:
-      enabled: true
-    prometheus:
-      enabled: true
-      alertmanager:
-        persistentVolume:
-          enabled: false
-      server:
-        persistentVolume:
-          enabled: false
+
