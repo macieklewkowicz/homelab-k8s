@@ -7,4 +7,3 @@ resources:
 - rook-toolbox.yaml
 - ceph-cluster.yaml
 - ceph-storageclass.yaml
-- test-pvc.yaml
