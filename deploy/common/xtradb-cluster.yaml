@@ -35,7 +35,7 @@ spec:
     schedule: "0 4 * * *"
   pxc:
     size: 1
-    image: percona/percona-xtradb-cluster:8.0.20-11.1
+    image: percona/percona-xtradb-cluster:8.0
 #    autoRecovery: false
 #    schedulerName: mycustom-scheduler
 #    readinessDelaySec: 15
@@ -113,7 +113,7 @@ spec:
   haproxy:
     enabled: true
     size: 1
-    image: percona/percona-xtradb-cluster-operator:1.6.0-haproxy
+    image: percona/percona-xtradb-cluster-operator:1.7.0-haproxy
 #    imagePullPolicy: Always
 #    schedulerName: mycustom-scheduler
 #    configuration: |
@@ -198,7 +198,7 @@ spec:
   proxysql:
     enabled: false
     size: 1
-    image: percona/percona-xtradb-cluster-operator:1.6.0-proxysql
+    image: percona/percona-xtradb-cluster-operator:1.7.0-proxysql
 #    imagePullPolicy: Always
 #    configuration: |
 #      datadir="/var/lib/proxysql"
@@ -313,7 +313,7 @@ spec:
 #     service.beta.kubernetes.io/aws-load-balancer-backend-protocol: http
   logcollector:
     enabled: true
-    image: percona/percona-xtradb-cluster-operator:1.6.0-logcollector
+    image: percona/percona-xtradb-cluster-operator:1.7.0-logcollector
 #    configuration: |
 #      [OUTPUT]
 #           Name  es
@@ -327,8 +327,8 @@ spec:
 #        memory: 200M
 #        cpu: 500m
   pmm:
-    enabled: false
-    image: percona/pmm-client:2.12.0
+    enabled: true
+    image: percona/pmm-client:2.14
     serverHost: monitoring-service
     serverUser: pmm
 #    pxcParams: "--disable-tablestats-limit=2000"
