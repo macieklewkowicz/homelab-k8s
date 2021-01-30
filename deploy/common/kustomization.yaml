@@ -9,3 +9,5 @@ resources:
 - ceph-storageclass.yaml
 - percona.yaml
 - xtradb-cluster.yaml
+- traefik.yaml
+
