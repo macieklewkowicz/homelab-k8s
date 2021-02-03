@@ -3,8 +3,8 @@ kind: Kustomization
 
 resources:
 - loki.yaml
-#- rook.yaml
-#- rook-toolbox.yaml
+- rook.yaml
+- rook-toolbox.yaml
 #- ceph-cluster.yaml
 #- ceph-storageclass.yaml
 #- percona.yaml
