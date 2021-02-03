@@ -5,8 +5,8 @@ resources:
 - loki.yaml
 - rook.yaml
 - rook-toolbox.yaml
-#- ceph-cluster.yaml
-#- ceph-storageclass.yaml
+- ceph-cluster.yaml
+- ceph-storageclass.yaml
 #- percona.yaml
 #- xtradb-cluster.yaml
 - metallb.yaml
