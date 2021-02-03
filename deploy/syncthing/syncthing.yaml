@@ -51,7 +51,6 @@ spec:
       name: config
     spec:
       accessModes: [ "ReadWriteOnce" ]
-      storageClassName: ""
       resources:
         requests:
           storage: 10Mi
@@ -59,7 +58,6 @@ spec:
       name: org
     spec:
       accessModes: [ "ReadWriteOnce" ]
-      storageClassName: ""
       resources:
         requests:
           storage: 100Mi
