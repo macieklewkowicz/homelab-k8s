@@ -1,0 +1,65 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: syncthing
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: syncthing
+  namespace: syncthing
+  labels:
+    app: syncthing
+spec:
+  ports:
+  - port: 8384
+    name: web
+  clusterIP: None
+  selector:
+    app: syncthing
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: syncthing
+  namespace: syncthing
+spec:
+  selector:
+    matchLabels:
+      app: syncthing
+  serviceName: syncthing
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: syncthing
+    spec:
+      terminationGracePeriodSeconds: 10
+      containers:
+      - name: syncthing
+        image: syncthing/syncthing
+        ports:
+        - containerPort: 8384
+          name: web
+        volumeMounts:
+        - name: config
+          mountPath: /var/syncthing/config
+        - name: org
+          mountPath: /var/syncthing/Org
+  volumeClaimTemplates:
+  - metadata:
+      name: config
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      storageClassName: ""
+      resources:
+        requests:
+          storage: 10Mi
+  - metadata:
+      name: org
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      storageClassName: ""
+      resources:
+        requests:
+          storage: 100Mi
