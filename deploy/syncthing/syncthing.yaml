@@ -44,8 +44,8 @@ spec:
         volumeMounts:
         - name: config
           mountPath: /var/syncthing/config
-        - name: org
-          mountPath: /var/syncthing/Org
+        - name: data
+          mountPath: /var/syncthing/data
   volumeClaimTemplates:
   - metadata:
       name: config
@@ -55,9 +55,9 @@ spec:
         requests:
           storage: 10Mi
   - metadata:
-      name: org
+      name: data
     spec:
       accessModes: [ "ReadWriteOnce" ]
       resources:
         requests:
-          storage: 100Mi
+          storage: 10Gi
