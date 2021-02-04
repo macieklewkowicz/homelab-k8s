@@ -31,4 +31,4 @@ spec:
   values:
     deployment:
       annotations:
-        prometheus.io/scrape: true
+        prometheus.io/scrape: "true"
