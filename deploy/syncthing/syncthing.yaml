@@ -6,7 +6,7 @@ metadata:
 apiVersion: v1
 kind: Service
 metadata:
-  name: syncthing
+  name: syncthing-web
   namespace: syncthing
   labels:
     app: syncthing
@@ -15,6 +15,27 @@ spec:
   - port: 8384
     name: web
   clusterIP: None
+  selector:
+    app: syncthing
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: syncthing-system
+  namespace: syncthing
+  labels:
+    app: syncthing
+spec:
+  type: NodePort
+  ports:
+  - port: 32000
+    targetPort: 32000
+    nodePort: 32000
+    name: sync
+  - port: 31027
+    targetPort: 31027
+    nodePort: 31027
+    name: discovery
   selector:
     app: syncthing
 ---
@@ -41,6 +62,10 @@ spec:
         ports:
         - containerPort: 8384
           name: web
+        - containerPort: 32000
+          name: sync
+        - containerPort: 31027
+          name: discovery
         volumeMounts:
         - name: config
           mountPath: /var/syncthing/config
