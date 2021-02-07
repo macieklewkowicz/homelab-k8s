@@ -111,7 +111,7 @@ spec:
             storage: 6G
     gracePeriod: 600
   haproxy:
-    enabled: true
+    enabled: false
     size: 1
     image: percona/percona-xtradb-cluster-operator:1.7.0-haproxy
 #    imagePullPolicy: Always
@@ -312,7 +312,7 @@ spec:
 #   serviceAnnotations:
 #     service.beta.kubernetes.io/aws-load-balancer-backend-protocol: http
   logcollector:
-    enabled: true
+    enabled: false
     image: percona/percona-xtradb-cluster-operator:1.7.0-logcollector
 #    configuration: |
 #      [OUTPUT]
@@ -327,7 +327,7 @@ spec:
 #        memory: 200M
 #        cpu: 500m
   pmm:
-    enabled: true
+    enabled: false
     image: percona/pmm-client:2.14
     serverHost: monitoring-service
     serverUser: pmm
