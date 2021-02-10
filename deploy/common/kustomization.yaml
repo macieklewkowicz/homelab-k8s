@@ -10,4 +10,4 @@ resources:
 - percona.yaml
 - xtradb-cluster.yaml
 - metallb.yaml
-- traefik.yaml
+#- traefik.yaml
