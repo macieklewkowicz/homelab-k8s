@@ -5,6 +5,8 @@ metadata:
   name: storage
   namespace: flux-system
 spec:
+  dependsOn:
+  - name: rook
   interval: 1h0m0s
   path: ./deploy/storage
   prune: true
