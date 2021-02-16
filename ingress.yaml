@@ -2,11 +2,11 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
 kind: Kustomization
 metadata:
-  name: infra-common
+  name: ingress
   namespace: flux-system
 spec:
   interval: 1h0m0s
-  path: ./deploy/common
+  path: ./deploy/ingress
   prune: true
   sourceRef:
     kind: GitRepository

@@ -2,12 +2,5 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
-- loki.yaml
-- rook.yaml
-- rook-toolbox.yaml
 - ceph-cluster.yaml
 - ceph-storageclass.yaml
-- percona.yaml
-- xtradb-cluster.yaml
-- metallb.yaml
-#- traefik.yaml
