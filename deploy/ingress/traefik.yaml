@@ -20,7 +20,7 @@ spec:
   targetNamespace: ingress-controller
   chart:
     spec:
-      chart: traefik/traefik
+      chart: traefik
       sourceRef:
         kind: HelmRepository
         name: traefik
