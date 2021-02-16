@@ -20,7 +20,7 @@ spec:
   targetNamespace: ingress-controller
   chart:
     spec:
-      chart: traefik
+      chart: traefik/traefik
       sourceRef:
         kind: HelmRepository
         name: traefik
@@ -28,7 +28,3 @@ spec:
   install:
     remediation:
       retries: 3
-  values:
-    deployment:
-      annotations:
-        prometheus.io/scrape: "true"
