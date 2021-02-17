@@ -26,7 +26,7 @@ metadata:
   labels:
     app: syncthing
 spec:
-  type: NodePort
+  type: LoadBalancer
   ports:
   - port: 32000
     targetPort: 32000
@@ -40,7 +40,7 @@ spec:
     app: syncthing
 ---
 apiVersion: apps/v1
-kind: StatefulSet
+kind: Deployment
 metadata:
   name: syncthing
   namespace: syncthing
@@ -48,7 +48,6 @@ spec:
   selector:
     matchLabels:
       app: syncthing
-  serviceName: syncthing
   replicas: 1
   template:
     metadata:
@@ -71,20 +70,35 @@ spec:
           mountPath: /var/syncthing/config
         - name: data
           mountPath: /var/syncthing/data
-  volumeClaimTemplates:
-  - metadata:
-      name: config
-    spec:
-      accessModes: [ "ReadWriteOnce" ]
-      storageClassName: ""
-      resources:
-        requests:
-          storage: 100Mi
-  - metadata:
-      name: data
-    spec:
-      accessModes: [ "ReadWriteOnce" ]
-      storageClassName: ""
-      resources:
-        requests:
-          storage: 10Gi
+      volumes:
+      - name: config
+        persistentVolumeClaim:
+          claimName: syncthing-config
+
+      - name: data
+        persistentVolumeClaim:
+          claimName: syncthing-data
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: syncthing-config
+  namespace: syncthing 
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 100Mi
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: syncthing-data
+  namespace: syncthing 
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 20Gi
