@@ -40,9 +40,9 @@ spec:
         ports:
         - containerPort: 8384
           name: web
-        - containerPort: 32000
+        - containerPort: 22000
           name: sync
-        - containerPort: 31027
+        - containerPort: 21027
           name: discovery
         volumeMounts:
         - name: config
