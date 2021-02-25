@@ -18,27 +18,6 @@ spec:
   selector:
     app: syncthing
 ---
-apiVersion: v1
-kind: Service
-metadata:
-  name: syncthing-system
-  namespace: syncthing
-  labels:
-    app: syncthing
-spec:
-  type: LoadBalancer
-  ports:
-  - port: 32000
-    targetPort: 32000
-    nodePort: 32000
-    name: sync
-  - port: 31027
-    targetPort: 31027
-    nodePort: 31027
-    name: discovery
-  selector:
-    app: syncthing
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
