@@ -49,14 +49,28 @@ spec:
           mountPath: /var/syncthing/config
         - name: data
           mountPath: /var/syncthing/data
+        - name: audiobooks
+          mountPath: /var/syncthing/Audiobooks
+        - name: music
+          mountPath: /var/syncthing/Music
+        - name: podcasts
+          mountPath: /var/syncthing/Podcasts
       volumes:
       - name: config
         persistentVolumeClaim:
           claimName: syncthing-config
-
       - name: data
         persistentVolumeClaim:
           claimName: syncthing-data
+      - name: audiobooks
+        persistentVolumeClaim:
+          claimName: audiobooks
+      - name: music
+        persistentVolumeClaim:
+          claimName: music
+      - name: podcasts
+        persistentVolumeClaim:
+          claimName: podcasts
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -81,3 +95,39 @@ spec:
   resources:
     requests:
       storage: 20Gi
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: audiobooks
+  namespace: syncthing 
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: music
+  namespace: syncthing 
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Gi
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: podcasts
+  namespace: syncthing 
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi
