@@ -44,6 +44,10 @@ spec:
           name: sync
         - containerPort: 21027
           name: discovery
+        resources:
+          requests:
+            memory: "512Mi"
+            cpu: "500m"
         volumeMounts:
         - name: config
           mountPath: /var/syncthing/config
