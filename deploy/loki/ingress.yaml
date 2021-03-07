@@ -1,0 +1,11 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: grafana
+  namespace: loki-stack
+spec:
+  defaultBackend:
+    service:
+      name: loki-stack-grafana
+      port:
+        number: 80
