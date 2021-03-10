@@ -6,24 +6,24 @@ metadata:
 apiVersion: source.toolkit.fluxcd.io/v1beta1
 kind: HelmRepository
 metadata:
-  name: traefik
+  name: contour
 spec:
   interval: 5m
-  url: https://helm.traefik.io/traefik
+  url: https://charts.bitnami.com/bitnami
 ---
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: traefik
+  name: contour
 spec:
-  releaseName: traefik
+  releaseName: contour
   targetNamespace: ingress-controller
   chart:
     spec:
-      chart: traefik
+      chart: contour
       sourceRef:
         kind: HelmRepository
-        name: traefik
+        name: contour
   interval: 1m
   install:
     remediation:
