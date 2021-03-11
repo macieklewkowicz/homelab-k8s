@@ -23,4 +23,5 @@ spec:
   install:
     remediation:
       retries: 3
-
+  values:
+    schedule: "*/20 * * * *"
