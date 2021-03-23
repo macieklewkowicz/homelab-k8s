@@ -36,12 +36,6 @@ spec:
         additionalLabels:
           release: "prometheus"
     grafana:
-      enabled: true
+      enabled: false
     prometheus:
-      enabled: true
-      alertmanager:
-        persistentVolume:
-          enabled: false
-      server:
-        persistentVolume:
-          enabled: false
+      enabled: false
