@@ -29,6 +29,12 @@ spec:
     remediation:
       retries: 3
   values:
+    loki:
+      enabled: true
+      serviceMonitor:
+        enabled: true
+        additionalLabels:
+          release: "prometheus"
     grafana:
       enabled: true
     prometheus:
