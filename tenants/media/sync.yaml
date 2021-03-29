@@ -8,6 +8,8 @@ spec:
   interval: 1m0s
   ref:
     branch: main
+  secretRef:
+    name: media-auth
   url: https://gitlab.com/kuft/media
 
 ---

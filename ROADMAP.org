@@ -1,0 +1,7 @@
+* TODO Deploy Mozilla Observatory reports with Prometheus
+* TODO Deplot Radicale
+* TODO Deploy irsonic
+* TODO Deploy FreshRSS
+* TODO Deploy MQTT-prometheus
+* TODO Deploy Calibre
+* TODO Deploy calibre-web
