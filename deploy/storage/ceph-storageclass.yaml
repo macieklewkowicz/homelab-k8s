@@ -26,7 +26,7 @@ spec:
   dataPools:
     - replicated:
         size: 1
-  preserveFilesystemOnDelete: true
+  preserveFilesystemOnDelete: false
   metadataServer:
     activeCount: 1
     activeStandby: true
@@ -45,14 +45,6 @@ parameters:
     # If you change this namespace, also change the namespace below where the secret namespaces are defined
     clusterID: rook-ceph # namespace:cluster
 
-    # If you want to use erasure coded pool with RBD, you need to create
-    # two pools. one erasure coded and one replicated.
-    # You need to specify the replicated pool here in the `pool` parameter, it is
-    # used for the metadata of the images.
-    # The erasure coded pool must be set as the `dataPool` parameter below.
-    #dataPool: ec-data-pool
-    pool: replicapool
-
     fsName: ceph-fs
 
     # RBD image format. Defaults to "2".
@@ -63,17 +55,13 @@ parameters:
 
     # The secrets contain Ceph admin credentials. These are generated automatically by the operator
     # in the same namespace as the cluster.
-    csi.storage.k8s.io/provisioner-secret-name: rook-csi-rbd-provisioner
-    csi.storage.k8s.io/provisioner-secret-namespace: rook-ceph # namespace:cluster
-    csi.storage.k8s.io/controller-expand-secret-name: rook-csi-rbd-provisioner
-    csi.storage.k8s.io/controller-expand-secret-namespace: rook-ceph # namespace:cluster
-    csi.storage.k8s.io/node-stage-secret-name: rook-csi-rbd-node
-    csi.storage.k8s.io/node-stage-secret-namespace: rook-ceph # namespace:cluster
-    # Specify the filesystem type of the volume. If not specified, csi-provisioner
-    # will set default as `ext4`.
-    csi.storage.k8s.io/fstype: ext4
+    csi.storage.k8s.io/provisioner-secret-name: rook-csi-cephfs-provisioner
+    csi.storage.k8s.io/provisioner-secret-namespace: rook-ceph
+    csi.storage.k8s.io/controller-expand-secret-name: rook-csi-cephfs-provisioner
+    csi.storage.k8s.io/controller-expand-secret-namespace: rook-ceph
+    csi.storage.k8s.io/node-stage-secret-name: rook-csi-cephfs-node
+    csi.storage.k8s.io/node-stage-secret-namespace: rook-ceph
 # uncomment the following to use rbd-nbd as mounter on supported nodes
 #mounter: rbd-nbd
 allowVolumeExpansion: true
 reclaimPolicy: Retain
-
