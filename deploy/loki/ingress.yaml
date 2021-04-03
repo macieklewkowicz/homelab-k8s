@@ -4,8 +4,13 @@ metadata:
   name: grafana
   namespace: prometheus
 spec:
-  defaultBackend:
-    service:
-      name: prometheus-grafana
-      port:
-        number: 80
+  rules:
+  - http:
+      paths:
+      - path: /grafana
+        pathType: Prefix
+        backend:
+          service:
+            name: prometheus-grafana
+            port:
+              number: 80
