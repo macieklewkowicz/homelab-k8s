@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: prometheus
+  name: monitoring
 ---
 apiVersion: source.toolkit.fluxcd.io/v1beta1
 kind: HelmRepository
@@ -17,7 +17,7 @@ metadata:
   name: prometheus
 spec:
   releaseName: prometheus
-  targetNamespace: prometheus
+  targetNamespace: monitoring
   chart:
     spec:
       chart: kube-prometheus-stack
