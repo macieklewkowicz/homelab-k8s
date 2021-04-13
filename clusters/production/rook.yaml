@@ -5,6 +5,8 @@ metadata:
   name: rook
   namespace: flux-system
 spec:
+  dependsOn:
+  - name: monitoring
   interval: 1h0m0s
   path: ./deploy/rook
   prune: true

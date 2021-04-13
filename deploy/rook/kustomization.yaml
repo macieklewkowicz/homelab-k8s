@@ -4,3 +4,4 @@ kind: Kustomization
 resources:
 - rook.yaml
 - rook-toolbox.yaml
+- servicemanager.yaml
