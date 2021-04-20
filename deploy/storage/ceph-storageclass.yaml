@@ -10,9 +10,9 @@ spec:
   dataPools:
     - replicated:
         size: 2
-  preserveFilesystemOnDelete: false
+  preserveFilesystemOnDelete: true
   metadataServer:
-    activeCount: 2
+    activeCount: 1
     activeStandby: true
 
 ---
