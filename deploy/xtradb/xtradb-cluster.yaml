@@ -34,7 +34,7 @@ spec:
     apply: recommended
     schedule: "0 4 * * *"
   pxc:
-    size: 2
+    size: 3
     image: percona/percona-xtradb-cluster:8.0
 #    autoRecovery: false
 #    schedulerName: mycustom-scheduler
@@ -112,7 +112,7 @@ spec:
     gracePeriod: 600
   haproxy:
     enabled: false
-    size: 2
+    size: 3
     image: percona/percona-xtradb-cluster-operator:1.7.0-haproxy
 #    imagePullPolicy: Always
 #    schedulerName: mycustom-scheduler
@@ -197,7 +197,7 @@ spec:
 #     service.beta.kubernetes.io/aws-load-balancer-backend-protocol: http
   proxysql:
     enabled: true
-    size: 2
+    size: 3
     image: percona/percona-xtradb-cluster-operator:1.7.0-proxysql
 #    imagePullPolicy: Always
 #    configuration: |
