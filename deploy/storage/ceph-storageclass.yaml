@@ -6,10 +6,14 @@ metadata:
 spec:
   metadataPool:
     replicated:
-      size: 2
+      size: 3
+    failureDomain: osd
+    deviceClass: ssd
   dataPools:
     - replicated:
         size: 2
+      failureDomain: osd
+      deviceClass: hdd
   preserveFilesystemOnDelete: true
   metadataServer:
     activeCount: 1
