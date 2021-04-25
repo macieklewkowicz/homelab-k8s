@@ -1,25 +1,3 @@
-apiVersion: ceph.rook.io/v1
-kind: CephFilesystem
-metadata:
-  name: ceph-fs
-  namespace: rook-ceph
-spec:
-  metadataPool:
-    replicated:
-      size: 3
-    failureDomain: osd
-    deviceClass: ssd
-  dataPools:
-    - replicated:
-        size: 2
-      failureDomain: osd
-      deviceClass: hdd
-  preserveFilesystemOnDelete: true
-  metadataServer:
-    activeCount: 1
-    activeStandby: true
-
----
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
