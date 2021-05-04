@@ -10,7 +10,7 @@ spec:
     branch: main
   secretRef:
     name: media-auth
-  url: ssh://git@gitlab.com/kuft/media
+  url: ssh://git@gitlab.com/smol-k8s/media
 
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
