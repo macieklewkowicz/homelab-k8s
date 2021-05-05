@@ -8,7 +8,6 @@ spec:
     replicated:
       size: 2
     failureDomain: osd
-    deviceClass: ssd
   dataPools:
     - replicated:
         size: 2
@@ -18,3 +17,7 @@ spec:
   metadataServer:
     activeCount: 1
     activeStandby: true
+    resources:
+      requests:
+        cpu: "500m"
+        memory: "1024Mi"
