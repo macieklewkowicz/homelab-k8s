@@ -28,4 +28,7 @@ spec:
   install:
     remediation:
       retries: 3
-
+  values:
+    csi:
+      enableCephfsSnapshotter: false
+      enableRBDSnapshotter: false
