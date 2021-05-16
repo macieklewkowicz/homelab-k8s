@@ -8,12 +8,10 @@ spec:
     replicated:
       size: 2
     failureDomain: osd
-    deviceClass: hdd
   dataPools:
     - replicated:
         size: 2
       failureDomain: osd
-      deviceClass: hdd
   preserveFilesystemOnDelete: true
   metadataServer:
     activeCount: 1
