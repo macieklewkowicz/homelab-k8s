@@ -2,13 +2,13 @@
 apiVersion: source.toolkit.fluxcd.io/v1beta1
 kind: GitRepository
 metadata:
-  name: infra
+  name: cluster
   namespace: flux-system
 spec:
   interval: 30s
   ref:
     branch: main
-  url: https://gitlab.com/kuft/infra
+  url: https://gitlab.com/smol-k8s/cluster
   secretRef:
     name: flux-system
 
