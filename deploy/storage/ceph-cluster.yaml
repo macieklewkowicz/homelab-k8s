@@ -42,7 +42,7 @@ spec:
         memory: "512Mi"
     osd:
       requests:
-        cpu: "500m"
+        cpu: "750m"
         memory: "512Mi"
   dashboard:
     enabled: false
