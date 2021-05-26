@@ -42,8 +42,8 @@ spec:
         memory: "512Mi"
     osd:
       requests:
-        cpu: "750m"
-        memory: "512Mi"
+        cpu: "1"
+        memory: "1Gi"
   dashboard:
     enabled: false
   crashCollector:
@@ -62,3 +62,4 @@ spec:
   monitoring:
     enabled: true
     rulesNamespace: "rook-ceph"
+  removeOSDsIfOutAndSafeToRemove: true
