@@ -34,15 +34,15 @@ spec:
   resources:
     mgr:
       requests:
-        cpu: "250m"
+        cpu: "200m"
         memory: "512Mi"
     mon:
       requests:
-        cpu: "250m"
+        cpu: "200m"
         memory: "512Mi"
     osd:
       requests:
-        cpu: "1"
+        cpu: "800m"
         memory: "1Gi"
   priorityClassNames:
     all: rook-ceph
