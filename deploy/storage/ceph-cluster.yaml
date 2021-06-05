@@ -45,8 +45,8 @@ spec:
         memory: "1Gi"
     osd:
       requests:
-        cpu: "1"
-        memory: "1Gi"
+        cpu: "500m"
+        memory: "512Mi"
   priorityClassNames:
     all: rook-ceph
   dashboard:
