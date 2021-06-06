@@ -12,10 +12,6 @@ spec:
     - replicated:
         size: 2
       failureDomain: osd
-    - erasureCoded:
-        dataChunks: 2
-        codingChunks: 1
-      failureDomain: host
   preservePoolsOnDelete: false
   preserveFilesystemOnDelete: true
   metadataServer:
