@@ -15,9 +15,9 @@ spec:
   preservePoolsOnDelete: false
   preserveFilesystemOnDelete: true
   metadataServer:
-    activeCount: 1
+    activeCount: 2
     activeStandby: true
     resources:
       requests:
-        cpu: "500m"
+        cpu: "1"
         memory: "1024Mi"
