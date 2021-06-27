@@ -53,11 +53,11 @@ spec:
   storage:
     useAllNodes: true
     useAllDevices: true
-    #deviceFilter:
+    deviceFilter: /dev/vdb
   healthCheck:
     daemonHealth:
       mon:
-        interval: 45s
+        interval: 60s
         timeout: 600s
   disruptionManagement:
     managePodBudgets: true
