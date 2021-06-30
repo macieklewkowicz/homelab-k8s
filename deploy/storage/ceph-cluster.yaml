@@ -56,8 +56,21 @@ spec:
   healthCheck:
     daemonHealth:
       mon:
+        disabled: false
         interval: 60s
         timeout: 600s
+      osd:
+        disabled: false
+        interval: 60s
+      status:
+        disabled: false
+    livenessProbe:
+      mon:
+        disabled: true
+      mgr:
+        disabled: true
+      osd:
+        disabled: true
   disruptionManagement:
     managePodBudgets: true
   monitoring:
