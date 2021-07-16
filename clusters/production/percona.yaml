@@ -1,0 +1,17 @@
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
+kind: Kustomization
+metadata:
+  name: percona
+  namespace: flux-system
+spec:
+  dependsOn:
+  - name: storage
+  interval: 1h0m0s
+  path: ./deploy/percona
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: infra
+  validation: client
+
