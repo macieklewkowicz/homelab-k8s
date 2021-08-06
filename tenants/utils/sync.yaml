@@ -1,0 +1,29 @@
+---
+apiVersion: source.toolkit.fluxcd.io/v1beta1
+kind: GitRepository
+metadata:
+  name: utils
+  namespace: utils
+spec:
+  interval: 1m0s
+  ref:
+    branch: main
+  secretRef:
+    name: utils-auth
+  url: ssh://git@gitlab.com/smol-k8s/utils
+
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
+kind: Kustomization
+metadata:
+  name: utils
+  namespace: utils
+spec:
+  interval: 1m0s
+  path: ./
+  prune: false
+  serviceAccountName: utils
+  sourceRef:
+    kind: GitRepository
+    name: utils
+
