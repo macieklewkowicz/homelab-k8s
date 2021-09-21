@@ -21,6 +21,7 @@ spec:
   chart:
     spec:
       chart: pxc-operator
+      version: 1.9.0
       sourceRef:
         kind: HelmRepository
         name: percona
@@ -29,6 +30,19 @@ spec:
     remediation:
       retries: 3
   values:
+    replicaCount: 1
+    watchAllNamespaces: true
+    createCRD: true
+    affinity:
+      podAntiAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+        - labelSelector:
+            matchExpressions:
+            - key: app.kubernetes.io/name
+              operator: In
+              values:
+              - pxc-operator
+          topologyKey: "kubernetes.io/hostname"
     resources:
       requests:
         cpu: 100m
