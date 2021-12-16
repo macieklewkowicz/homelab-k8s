@@ -74,6 +74,6 @@ spec:
   disruptionManagement:
     managePodBudgets: true
   monitoring:
-    enabled: true
+    enabled: false
     rulesNamespace: "rook-ceph"
   removeOSDsIfOutAndSafeToRemove: true
