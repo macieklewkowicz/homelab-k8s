@@ -2,7 +2,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: grafana
-  namespace: monitoring
+  namespace: smol-system
 spec:
   rules:
   - host: grafana.k8s.lan

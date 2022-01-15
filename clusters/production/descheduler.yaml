@@ -5,6 +5,8 @@ metadata:
   name: descheduler
   namespace: flux-system
 spec:
+  dependsOn:
+  - name: smol
   interval: 1h0m0s
   path: ./deploy/descheduler
   prune: true
@@ -12,4 +14,3 @@ spec:
     kind: GitRepository
     name: cluster
   validation: client
-

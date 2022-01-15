@@ -12,7 +12,7 @@ metadata:
   name: kured
 spec:
   releaseName: kured
-  targetNamespace: kube-system
+  targetNamespace: smol-system
   chart:
     spec:
       chart: kured

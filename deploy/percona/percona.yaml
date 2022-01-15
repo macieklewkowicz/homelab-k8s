@@ -17,7 +17,7 @@ metadata:
   name: pxc-operator
 spec:
   releaseName: pxc-operator
-  targetNamespace: percona
+  targetNamespace: smol-system
   chart:
     spec:
       chart: pxc-operator

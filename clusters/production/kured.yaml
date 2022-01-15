@@ -5,6 +5,8 @@ metadata:
   name: kured
   namespace: flux-system
 spec:
+  dependsOn:
+  - name: smol
   interval: 1h0m0s
   path: ./deploy/kured
   prune: true
@@ -12,4 +14,3 @@ spec:
     kind: GitRepository
     name: cluster
   validation: client
-
