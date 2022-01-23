@@ -1,7 +1,7 @@
 apiVersion: pxc.percona.com/v1-9-0
 kind: PerconaXtraDBCluster
 metadata:
-  name: main-cluster
+  name: db-cluster
   namespace: smol-system
   finalizers:
     - delete-pxc-pods-in-order
