@@ -69,8 +69,8 @@ spec:
 #    imagePullPolicy: Always
     resources:
       requests:
-        memory: 1G
-        cpu: 600m
+        memory: 512Mi
+        cpu: 250m
 #        ephemeral-storage: 1G
 #      limits:
 #        memory: 1G
@@ -154,8 +154,8 @@ spec:
 #    replicasExternalTrafficPolicy: Cluster
     resources:
       requests:
-        memory: 1G
-        cpu: 600m
+        memory: 512Mi
+        cpu: 250m
 #      limits:
 #        memory: 1G
 #        cpu: 700m
@@ -259,8 +259,8 @@ spec:
 #    externalTrafficPolicy: Cluster
     resources:
       requests:
-        memory: 1G
-        cpu: 600m
+        memory: 512Mi
+        cpu: 250m
 #      limits:
 #        memory: 1G
 #        cpu: 700m
