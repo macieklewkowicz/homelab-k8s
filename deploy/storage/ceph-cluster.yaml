@@ -34,11 +34,11 @@ spec:
   resources:
     mgr:
       requests:
-        cpu: "1"
+        cpu: "500m"
         memory: "1Gi"
     mon:
       requests:
-        cpu: "1"
+        cpu: "500m"
         memory: "1Gi"
     osd:
       requests:
