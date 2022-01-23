@@ -31,6 +31,7 @@ spec:
       retries: 3
   values:
     replicaCount: 1
+    watchNamespace: media
     watchAllNamespaces: true
     createCRD: true
     affinity:
