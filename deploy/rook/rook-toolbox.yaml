@@ -23,6 +23,13 @@ spec:
         args: ["-m", "-c", "/usr/local/bin/toolbox.sh"]
         tty: true
         imagePullPolicy: IfNotPresent
+        resources:
+          requests:
+            cpu: "250m"
+            memory: "64Mi"
+          limits:
+            cpu: "500m"
+            memory: "128Mi"
         env:
           - name: ROOK_CEPH_USERNAME
             valueFrom:
@@ -53,4 +60,3 @@ spec:
           operator: "Exists"
           effect: "NoExecute"
           tolerationSeconds: 5
-
