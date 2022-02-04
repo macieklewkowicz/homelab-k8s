@@ -4,7 +4,7 @@ resources:
 - gotk-components.yaml
 - gotk-sync.yaml
 patchesStrategicMerge:
-- helm-controller.yaml
-- notification-controller.yaml
+- helm-controller-patch.yaml
+- notification-controller-patch.yaml
 - kustomize-controller-patch.yaml
 - source-controller-patch.yaml
