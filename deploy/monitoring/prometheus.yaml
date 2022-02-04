@@ -26,3 +26,7 @@ spec:
   values:
     alertmanager:
       enabled: false
+    nodeExporter:
+      priorityClassName: smol-critical
+    server:
+      priorityClassName: smol-critical
