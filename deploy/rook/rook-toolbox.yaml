@@ -16,6 +16,7 @@ spec:
         app: rook-ceph-tools
     spec:
       dnsPolicy: ClusterFirstWithHostNet
+      priorityClassName: rook-ceph
       containers:
       - name: rook-ceph-tools
         image: rook/ceph:master
@@ -28,7 +29,7 @@ spec:
             cpu: "250m"
             memory: "64Mi"
           limits:
-            cpu: "500m"
+            cpu: "250m"
             memory: "128Mi"
         env:
           - name: ROOK_CEPH_USERNAME
