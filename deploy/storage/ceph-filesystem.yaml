@@ -17,7 +17,11 @@ spec:
   metadataServer:
     activeCount: 1
     activeStandby: true
+    priorityClassName: rook-ceph
     resources:
       requests:
-        cpu: "1"
-        memory: "1024Mi"
+        cpu: "500m"
+        memory: "512Mi"
+      limits:
+        cpu: "1000m"
+        memory: "1Gi"
