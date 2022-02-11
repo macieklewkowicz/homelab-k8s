@@ -34,6 +34,13 @@ spec:
       PodDisruptionBudget:
         enable: true
       priorityClassName: smol-system
+      resources:
+        limits:
+          cpu: 100m
+          memory: 256Mi
+        requests:
+          cpu: 100m
+          memory: 256Mi
     defaultBackend:
       enabled: false
   interval: 1m
