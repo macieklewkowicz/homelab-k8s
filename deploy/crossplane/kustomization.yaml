@@ -4,3 +4,4 @@ kind: Kustomization
 resources:
 - crossplane.yaml
 - provider-sql.yaml
+- providerconfig.yaml
