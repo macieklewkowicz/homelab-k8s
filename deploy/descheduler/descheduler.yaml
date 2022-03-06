@@ -21,7 +21,8 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: descheduler
-  values: Deployment
+  values:
+    kind: Deployment
   interval: 1m
   install:
     remediation:
