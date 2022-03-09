@@ -1,0 +1,27 @@
+apiVersion: source.toolkit.fluxcd.io/v1beta1
+kind: HelmRepository
+metadata:
+  name: chaos-mesh
+  namespace: default
+spec:
+  interval: 5m
+  url: https://charts.chaos-mesh.org
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: chaos-mesh
+  namespace: default
+spec:
+  releaseName: chaos-mesh
+  targetNamespace: smol-system
+  chart:
+    spec:
+      chart: chaos-mesh
+      sourceRef:
+        kind: HelmRepository
+        name: chaos-mesh
+  interval: 1m
+  install:
+    remediation:
+      retries: 3
