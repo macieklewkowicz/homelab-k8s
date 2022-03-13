@@ -1,0 +1,28 @@
+---
+apiVersion: source.toolkit.fluxcd.io/v1beta1
+kind: GitRepository
+metadata:
+  name: smol-devtools
+  namespace: smol-devtools
+spec:
+  interval: 1m0s
+  ref:
+    branch: main
+  secretRef:
+    name: smol-devtools-auth
+  url: ssh://git@gitlab.com/smol-k8s/devtools
+
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+kind: Kustomization
+metadata:
+  name: smol-devtools
+  namespace: smol-devtools
+spec:
+  interval: 1m0s
+  path: ./
+  prune: false
+  serviceAccountName: smol-devtools
+  sourceRef:
+    kind: GitRepository
+    name: smol-devtools
