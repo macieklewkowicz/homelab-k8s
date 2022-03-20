@@ -6,7 +6,7 @@ metadata:
 spec:
   template:
     spec:
-      priorityClassName: smol-system
+      priorityClassName: smol-critical
       containers:
         - name: manager
           resources:
