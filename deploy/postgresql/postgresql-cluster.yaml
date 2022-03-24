@@ -48,6 +48,7 @@ spec:
 #    imagePullPolicy: Always
     resources:
       requests:
+        cpu: 500m
         memory: "128Mi"
     tolerations: []
     volumeSpec:
@@ -73,8 +74,8 @@ spec:
     pmmSecret: cluster1-pmm-secret
     resources:
       requests:
-        memory: 200M
         cpu: 500m
+        memory: 200M
 #      limits:
 #        cpu: "1"
 #        memory: "400M"
@@ -84,6 +85,7 @@ spec:
     backrestRepoImage: perconalab/percona-postgresql-operator:main-ppg14-pgbackrest-repo
     resources:
       requests:
+        cpu: 100m
         memory: "48Mi"
 #      limits:
 #        cpu: "1"
@@ -111,7 +113,7 @@ spec:
     size: 3
     resources:
       requests:
-        cpu: "250m"
+        cpu: 250m
         memory: "128Mi"
       limits:
         cpu: "2"
@@ -128,7 +130,7 @@ spec:
       size: 2
       resources:
         requests:
-#          cpu: "1"
+          cpu: 250m
           memory: "128Mi"
 #        limits:
 #          cpu: "1"
