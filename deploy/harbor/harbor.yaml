@@ -1,0 +1,98 @@
+apiVersion: source.toolkit.fluxcd.io/v1beta1
+kind: HelmRepository
+metadata:
+  name: harbor
+  namespace: default
+spec:
+  interval: 5m
+  url: https://helm.goharbor.io
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: harbor
+  namespace: default
+spec:
+  releaseName: harbor
+  targetNamespace: smol-system
+  chart:
+    spec:
+      chart: harbor
+      version: ">=1.8.0 <1.9.0"
+      sourceRef:
+        kind: HelmRepository
+        name: harbor
+  values:
+    core:
+      resources:
+        limits:
+          cpu: 500m
+          memory: 1024Mi
+        requests:
+          cpu: 250m
+          memory: 512Mi
+    chartmuseum:
+      resources:
+        limits:
+          cpu: 500m
+          memory: 1024Mi
+        requests:
+          cpu: 250m
+          memory: 512Mi
+    jobservice:
+      resources:
+        limits:
+          cpu: 500m
+          memory: 1024Mi
+        requests:
+          cpu: 250m
+          memory: 512Mi
+    notary:
+      server:
+        resources:
+          limits:
+            cpu: 200m
+            memory: 512Mi
+          requests:
+            cpu: 100m
+            memory: 256Mi
+      signer:
+        resources:
+          limits:
+            cpu: 200m
+            memory: 512Mi
+          requests:
+            cpu: 100m
+            memory: 256Mi
+    portal:
+      resources:
+        limits:
+          cpu: 500m
+          memory: 1024Mi
+        requests:
+          cpu: 250m
+          memory: 512Mi
+    registry:
+      resources:
+        limits:
+          cpu: 500m
+          memory: 1024Mi
+        requests:
+          cpu: 250m
+          memory: 512Mi
+    trivy:
+      resources:
+        limits:
+          cpu: 500m
+          memory: 1024Mi
+        requests:
+          cpu: 250m
+          memory: 512Mi
+    database:
+      type: external
+    redis:
+      type: external
+  interval: 1m
+  install:
+    remediation:
+      retries: 3
