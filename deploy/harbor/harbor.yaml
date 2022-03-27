@@ -29,65 +29,65 @@ spec:
           cpu: 500m
           memory: 1024Mi
         requests:
-          cpu: 250m
-          memory: 512Mi
+          cpu: 100m
+          memory: 256Mi
     chartmuseum:
       resources:
         limits:
           cpu: 500m
           memory: 1024Mi
         requests:
-          cpu: 250m
-          memory: 512Mi
+          cpu: 100m
+          memory: 256Mi
     jobservice:
       resources:
         limits:
           cpu: 500m
           memory: 1024Mi
         requests:
-          cpu: 250m
-          memory: 512Mi
+          cpu: 100m
+          memory: 256Mi
     notary:
       server:
         resources:
           limits:
             cpu: 200m
-            memory: 512Mi
+            memory: 256Mi
           requests:
             cpu: 100m
-            memory: 256Mi
+            memory: 128Mi
       signer:
         resources:
           limits:
             cpu: 200m
-            memory: 512Mi
+            memory: 256Mi
           requests:
             cpu: 100m
-            memory: 256Mi
+            memory: 128Mi
     portal:
       resources:
         limits:
           cpu: 500m
           memory: 1024Mi
         requests:
-          cpu: 250m
-          memory: 512Mi
+          cpu: 100m
+          memory: 256Mi
     registry:
       resources:
         limits:
           cpu: 500m
           memory: 1024Mi
         requests:
-          cpu: 250m
-          memory: 512Mi
+          cpu: 100m
+          memory: 256Mi
     trivy:
       resources:
         limits:
           cpu: 500m
           memory: 1024Mi
         requests:
-          cpu: 250m
-          memory: 512Mi
+          cpu: 100m
+          memory: 256Mi
     database:
       type: external
     redis:
