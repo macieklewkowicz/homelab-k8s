@@ -1,10 +1,15 @@
-apiVersion: mysql.sql.crossplane.io/v1alpha1
+---
+apiVersion: postgresql.sql.crossplane.io/v1alpha1
 kind: ProviderConfig
 metadata:
-  name: main-pxc
+  name: percona-psql
 spec:
+  # defaultDatabase is the default database to be used in DSN.
+  # Similar to PGDATABASE environment variable and defaults to "postgres"
+  # if not set.
+  # defaultDatabase: postgres
   credentials:
-    source: MySQLConnectionSecret
+    source: PostgreSQLConnectionSecret
     connectionSecretRef:
       namespace: smol-system
-      name: crossplane-pxc-secret
+      name: percona-psql-conn
