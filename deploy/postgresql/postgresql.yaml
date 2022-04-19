@@ -22,11 +22,9 @@ spec:
         kind: HelmRepository
         name: postgresql
   values:
-    global:
-      postgresql:
-        existingSecret: postgresql
     postgresql:
       priorityClassName: smol-system
+      existingSecret: postgresql
     pgpool:
       priorityClassName: smol-system
   interval: 1m
