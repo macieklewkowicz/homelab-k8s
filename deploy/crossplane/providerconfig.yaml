@@ -8,6 +8,7 @@ spec:
   # Similar to PGDATABASE environment variable and defaults to "postgres"
   # if not set.
   # defaultDatabase: postgres
+  sslMode: disable
   credentials:
     source: PostgreSQLConnectionSecret
     connectionSecretRef:
