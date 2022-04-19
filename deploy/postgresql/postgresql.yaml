@@ -25,6 +25,9 @@ spec:
     postgresql:
       priorityClassName: smol-system
       existingSecret: postgresql
+      startupProbe:
+        enabled: true
+        initialDelaySeconds: 60
     pgpool:
       replicaCount: 2
       priorityClassName: smol-system
