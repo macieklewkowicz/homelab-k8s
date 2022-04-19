@@ -28,6 +28,8 @@ spec:
       startupProbe:
         enabled: true
         initialDelaySeconds: 60
+      pdb:
+        create: true
     pgpool:
       replicaCount: 2
       priorityClassName: smol-system
