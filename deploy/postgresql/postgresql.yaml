@@ -33,6 +33,8 @@ spec:
     pgpool:
       replicaCount: 2
       priorityClassName: smol-system
+      pdb:
+        create: true
   interval: 1m
   install:
     remediation:
