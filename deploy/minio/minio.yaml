@@ -42,7 +42,7 @@ metadata:
   name: minio-tenant
   namespace: default
 spec:
-  releaseName: minio-operator
+  releaseName: minio-tenant
   targetNamespace: minio-tenant
   chart:
     spec:
