@@ -26,6 +26,7 @@ spec:
       priorityClassName: smol-system
       existingSecret: postgresql
     pgpool:
+      replicaCount: 2
       priorityClassName: smol-system
   interval: 1m
   install:
