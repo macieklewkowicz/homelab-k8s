@@ -92,5 +92,4 @@ spec:
     managePodBudgets: true
   monitoring:
     enabled: false
-    rulesNamespace: "rook-ceph"
   removeOSDsIfOutAndSafeToRemove: true
