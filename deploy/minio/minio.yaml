@@ -50,6 +50,16 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: minio
+  values:
+    tenants:
+      - name: minio-1
+        namespace: minio-tenant
+        pools:
+        - name: pool-0
+          servers: 4
+          pools: 1
+          size: 128Gi
+          StorageClassName: rook-ceph-fs-minio
   interval: 1m
   install:
     remediation:
