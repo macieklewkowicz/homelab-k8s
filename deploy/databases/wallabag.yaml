@@ -5,3 +5,34 @@ metadata:
   name: wallabag
 spec:
   forProvider: {}
+---
+apiVersion: postgresql.sql.crossplane.io/v1alpha1
+kind: Role
+metadata:
+  name: wallabag
+spec:
+  forProvider:
+    connectionLimit: 10
+    privileges:
+      login: true
+    passwordSecretRef:
+      name: postgres-wallabag-connection
+      namespace: media
+      key: password
+  writeConnectionSecretToRef:
+    name: postgres-wallabag-role-secret
+    namespace: media
+---
+apiVersion: postgresql.sql.crossplane.io/v1alpha1
+kind: Grant
+metadata:
+  name: wallabag
+spec:
+  forProvider:
+    privileges:
+      - CONNECT
+      - TEMPORARY
+    roleRef:
+      name: wallabag
+    databaseRef:
+      name: wallabag
