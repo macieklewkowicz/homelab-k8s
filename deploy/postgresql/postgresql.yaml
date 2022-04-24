@@ -28,11 +28,13 @@ spec:
       startupProbe:
         enabled: true
         initialDelaySeconds: 60
+      podAntiAffinityPreset: hard
       pdb:
         create: true
     pgpool:
       replicaCount: 2
       priorityClassName: smol-system
+      podAntiAffinityPreset: hard
       pdb:
         create: true
   interval: 1m
