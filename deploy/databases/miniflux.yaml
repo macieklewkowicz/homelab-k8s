@@ -1,0 +1,38 @@
+---
+apiVersion: postgresql.sql.crossplane.io/v1alpha1
+kind: Database
+metadata:
+  name: miniflux
+spec:
+  forProvider: {}
+---
+apiVersion: postgresql.sql.crossplane.io/v1alpha1
+kind: Role
+metadata:
+  name: miniflux
+spec:
+  forProvider:
+    connectionLimit: 10
+    privileges:
+      login: true
+    passwordSecretRef:
+      name: postgres-miniflux-connection
+      namespace: media
+      key: password
+  writeConnectionSecretToRef:
+    name: postgres-miniflux-role-secret
+    namespace: media
+---
+apiVersion: postgresql.sql.crossplane.io/v1alpha1
+kind: Grant
+metadata:
+  name: miniflux
+spec:
+  forProvider:
+    privileges:
+      - CONNECT
+      - TEMPORARY
+    roleRef:
+      name: miniflux
+    databaseRef:
+      name: miniflux
