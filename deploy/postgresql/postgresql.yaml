@@ -23,6 +23,7 @@ spec:
         name: postgresql
   values:
     postgresql:
+      replicaCount: 1
       priorityClassName: smol-system
       existingSecret: postgresql
       startupProbe:
