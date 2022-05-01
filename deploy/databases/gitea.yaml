@@ -1,0 +1,38 @@
+---
+apiVersion: postgresql.sql.crossplane.io/v1alpha1
+kind: Database
+metadata:
+  name: gitea
+spec:
+  forProvider: {}
+---
+apiVersion: postgresql.sql.crossplane.io/v1alpha1
+kind: Role
+metadata:
+  name: gitea
+spec:
+  forProvider:
+    connectionLimit: 10
+    privileges:
+      login: true
+    passwordSecretRef:
+      name: postgres-gitea-connection
+      namespace: smol-devtools
+      key: password
+  writeConnectionSecretToRef:
+    name: postgres-gitea-role-secret
+    namespace: smol-devtools
+---
+apiVersion: postgresql.sql.crossplane.io/v1alpha1
+kind: Grant
+metadata:
+  name: gitea
+spec:
+  forProvider:
+    privileges:
+      - CONNECT
+      - TEMPORARY
+    roleRef:
+      name: gitea
+    databaseRef:
+      name: gitea
