@@ -34,6 +34,8 @@ spec:
       pdb:
         create: true
     pgpool:
+      authenticationMethod: scram-sha-256
+      logConnections: true
       replicaCount: 2
       priorityClassName: smol-system
       podAntiAffinityPreset: hard
