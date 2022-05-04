@@ -18,7 +18,7 @@ spec:
   chart:
     spec:
       chart: kubernetes-ingress
-      version: ">=1.12.0 <1.13.0"
+      version: ">=1.21.0 <1.22.0"
       sourceRef:
         kind: HelmRepository
         name: haproxytech
@@ -27,7 +27,7 @@ spec:
       kind: DaemonSet
       unprivileged: false
       ingressClassResource:
-        enabled: true
+        name: haproxy
         default: true
       service:
         type: LoadBalancer
