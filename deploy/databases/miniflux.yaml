@@ -36,3 +36,14 @@ spec:
       name: miniflux
     databaseRef:
       name: miniflux
+---
+apiVersion: postgresql.sql.crossplane.io/v1alpha1
+kind: Extension
+metadata:
+  name: hstore-extension-db
+spec:
+  forProvider:
+    extension: hstore
+    version: "1.4"
+    databaseRef:
+      name: miniflux
