@@ -24,6 +24,7 @@ spec:
         name: postgresql
   values:
     postgresql:
+      existingSecret: postgresql
       replicaCount: 2
       priorityClassName: smol-critical
       existingSecret: postgresql
@@ -34,6 +35,7 @@ spec:
       pdb:
         create: true
     pgpool:
+      existingSecret: postgresql-postgresql-ha-pgpool
       authenticationMethod: scram-sha-256
       extraEnvVars:
       - name: PGPOOL_ENABLE_POOL_HBA
