@@ -25,7 +25,7 @@ spec:
   values:
     postgresql:
       replicaCount: 2
-      priorityClassName: smol-system
+      priorityClassName: smol-critical
       existingSecret: postgresql
       startupProbe:
         enabled: true
@@ -40,7 +40,7 @@ spec:
         value: no
       logConnections: true
       replicaCount: 2
-      priorityClassName: smol-system
+      priorityClassName: smol-critical
       podAntiAffinityPreset: hard
       pdb:
         create: true
