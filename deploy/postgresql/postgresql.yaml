@@ -24,7 +24,6 @@ spec:
         name: postgresql
   values:
     postgresql:
-      existingSecret: postgresql
       replicaCount: 2
       priorityClassName: smol-critical
       existingSecret: postgresql
