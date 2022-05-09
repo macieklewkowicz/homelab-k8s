@@ -22,7 +22,10 @@ spec:
         kind: HelmRepository
         name: chaos-mesh
   values:
+    controllerManager:
+      priorityClassName: smol-system
     chaosDaemon:
+      priorityClassName: smol-system
       resources:
         limits:
           cpu: 250m
