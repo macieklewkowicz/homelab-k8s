@@ -33,6 +33,13 @@ spec:
       podAntiAffinityPreset: hard
       pdb:
         create: true
+      resources:
+        requests:
+          cpu: "250m"
+          memory: "1Gi"
+        limits:
+          cpu: "500m"
+          memory: "4Gi"
     pgpool:
       existingSecret: postgresql-postgresql-ha-pgpool
       authenticationMethod: scram-sha-256
@@ -45,6 +52,13 @@ spec:
       podAntiAffinityPreset: hard
       pdb:
         create: true
+      resources:
+        requests:
+          cpu: "100m"
+          memory: "64Mi"
+        limits:
+          cpu: "250m"
+          memory: "128Mi"
   interval: 1m
   install:
     remediation:
