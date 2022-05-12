@@ -29,6 +29,13 @@ spec:
   values:
     prometheusOperator:
       priorityClassName: smol-critical
+    prometheus:
+      podDisruptionBudget:
+        enabled: true
+        minAvailable: 1
+      prometheusSpec:
+        replicas: 2
+        priorityClassName: smol-critical
     alertmanager:
       enabled: false
     prometheus-node-exporter:
