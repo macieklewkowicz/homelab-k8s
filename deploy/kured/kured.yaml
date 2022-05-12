@@ -23,8 +23,7 @@ spec:
         kind: HelmRepository
         name: kured
   values:
-    priorityClassName: smol-critical
-    tolerations: ~
+    priorityClassName: smol-additional
   interval: 1m
   install:
     remediation:
