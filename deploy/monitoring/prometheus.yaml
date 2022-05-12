@@ -36,6 +36,17 @@ spec:
       prometheusSpec:
         replicas: 2
         priorityClassName: smol-critical
+        affinity:
+          podAntiAffinity:
+            preferredDuringSchedulingIgnoredDuringExecution:
+            - weight: 100
+              podAffinityTerm:
+                labelSelector:
+                  matchExpressions:
+                  - key: "app.kubernetes.io/instance"
+                    operator: In
+                    values:
+                      - prometheus-kube-prometheus-prometheus
     alertmanager:
       enabled: false
     prometheus-node-exporter:
