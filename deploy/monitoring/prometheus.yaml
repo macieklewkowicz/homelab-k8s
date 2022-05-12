@@ -31,7 +31,9 @@ spec:
       priorityClassName: smol-critical
     alertmanager:
       enabled: false
-    nodeExporter:
+    prometheus-node-exporter:
       priorityClassName: smol-critical
-    server:
+    kube-state-metrics:
+      priorityClassName: smol-critical
+    grafana:
       priorityClassName: smol-critical
