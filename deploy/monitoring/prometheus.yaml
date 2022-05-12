@@ -47,6 +47,7 @@ spec:
                     operator: In
                     values:
                       - prometheus-kube-prometheus-prometheus
+                topologyKey: "kubernetes.io/hostname"
     alertmanager:
       enabled: false
     prometheus-node-exporter:
