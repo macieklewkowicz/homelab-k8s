@@ -15,7 +15,7 @@ spec:
   preservePoolsOnDelete: false
   preserveFilesystemOnDelete: true
   metadataServer:
-    activeCount: 2
+    activeCount: 1
     activeStandby: true
     priorityClassName: rook-ceph
     resources:
