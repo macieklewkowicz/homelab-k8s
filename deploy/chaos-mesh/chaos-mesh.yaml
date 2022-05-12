@@ -24,9 +24,9 @@ spec:
         name: chaos-mesh
   values:
     controllerManager:
-      priorityClassName: smol-system
+      priorityClassName: smol-additional
     chaosDaemon:
-      priorityClassName: smol-system
+      priorityClassName: smol-additional
       resources:
         limits:
           cpu: 250m
