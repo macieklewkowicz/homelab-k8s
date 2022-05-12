@@ -34,7 +34,7 @@ spec:
         loadBalancerIP: 192.168.10.0
       PodDisruptionBudget:
         enable: true
-      priorityClassName: smol-system
+      priorityClassName: smol-critical
       resources:
         limits:
           cpu: 500m
