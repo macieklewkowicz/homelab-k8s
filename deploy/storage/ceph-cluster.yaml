@@ -55,7 +55,7 @@ spec:
         memory: "1Gi"
     osd:
       requests:
-        cpu: "1000m"
+        cpu: "500m"
         memory: "1Gi"
       limits:
         cpu: "2000m"
