@@ -27,13 +27,11 @@ spec:
         memory: "8Gi"
     placement:
       podAntiAffinity:
-        preferredDuringSchedulingIgnoredDuringExecution:
-        - weight: 100
-          podAffinityTerm:
-            labelSelector:
-              matchExpressions:
-              - key: "app"
-                operator: In
-                values:
-                  - rook-ceph-mds
-            topologyKey: "kubernetes.io/hostname"
+        requiredDuringSchedulingIgnoredDuringExecution:
+        - labelSelector:
+            matchExpressions:
+            - key: "app"
+              operator: In
+              values:
+                - rook-ceph-mds
+          topologyKey: "kubernetes.io/hostname"
