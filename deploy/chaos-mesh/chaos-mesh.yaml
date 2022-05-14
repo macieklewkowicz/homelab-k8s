@@ -25,6 +25,23 @@ spec:
   values:
     controllerManager:
       priorityClassName: smol-additional
+      replicaCount: 2
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 100
+            podAffinityTerm:
+              labelSelector:
+                matchExpressions:
+                - key: "app.kubernetes.io/instance"
+                  operator: In
+                  values:
+                    - chaos-mesh
+                - key: "app.kubernetes.io/component"
+                  operator: In
+                  values:
+                    - controller-manager
+              topologyKey: "kubernetes.io/hostname"
     chaosDaemon:
       priorityClassName: smol-additional
       resources:
