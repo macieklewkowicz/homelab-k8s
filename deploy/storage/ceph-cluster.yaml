@@ -64,9 +64,10 @@ spec:
     all: rook-ceph
     osd: smol-critical
   placement:
-    tolerations:
-    - key: node-role.kubernetes.io/storage
-      operator: Exists
+    all:
+      tolerations:
+      - key: node-role.kubernetes.io/storage
+        operator: Exists
   dashboard:
     enabled: false
   crashCollector:
