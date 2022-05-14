@@ -24,8 +24,9 @@ spec:
         name: haproxytech
   values:
     controller:
-      kind: DaemonSet
-      unprivileged: false
+      kind: Deployment
+      replicaCount: 2
+      unprivileged: true
       ingressClassResource:
         name: haproxy
         default: true
