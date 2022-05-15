@@ -49,6 +49,28 @@ spec:
         requests:
           cpu: 50m
           memory: 512Mi
+    dashboard:
+      priorityClassName: smol-system
+      replicaCount: 2
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: "app.kubernetes.io/instance"
+                operator: In
+                values:
+                  - chaos-mesh
+              - key: "app.kubernetes.io/component"
+                operator: In
+                values:
+                  - controller-manager
+            topologyKey: "kubernetes.io/hostname"
+      ingress:
+        enabled: true
+        hosts:
+          - name: chaos.k8s.lan
+            paths: ["/"]
   interval: 1m
   install:
     remediation:
