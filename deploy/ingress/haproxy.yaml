@@ -24,8 +24,7 @@ spec:
         name: haproxytech
   values:
     controller:
-      kind: Deployment
-      replicaCount: 2
+      kind: DaemonSet
       unprivileged: true
       ingressClassResource:
         name: haproxy
@@ -33,8 +32,6 @@ spec:
       service:
         type: LoadBalancer
         loadBalancerIP: 192.168.10.0
-      PodDisruptionBudget:
-        enable: true
       priorityClassName: smol-critical
       resources:
         limits:
@@ -43,16 +40,6 @@ spec:
         requests:
           cpu: 100m
           memory: 256Mi
-      affinity:
-        podAntiAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
-          - labelSelector:
-              matchExpressions:
-              - key: "app.kubernetes.io/instance"
-                operator: In
-                values:
-                  - haproxy
-            topologyKey: "kubernetes.io/hostname"
     defaultBackend:
       enabled: false
   interval: 1m
