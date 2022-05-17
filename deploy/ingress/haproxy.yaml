@@ -43,6 +43,16 @@ spec:
         requests:
           cpu: 100m
           memory: 256Mi
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: "app.kubernetes.io/instance"
+                operator: In
+                values:
+                  - haproxy
+            topologyKey: "kubernetes.io/hostname"
     defaultBackend:
       enabled: false
   interval: 1m
