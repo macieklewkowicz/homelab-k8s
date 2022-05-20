@@ -29,6 +29,16 @@ spec:
     spec:
       dnsPolicy: ClusterFirstWithHostNet
       priorityClassName: rook-ceph
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: "app"
+                operator: In
+                values:
+                  - rook-ceph-tools
+            topologyKey: "kubernetes.io/hostname"
       containers:
       - name: rook-ceph-tools
         image: rook/ceph:master
@@ -69,6 +79,8 @@ spec:
         - name: ceph-config
           emptyDir: {}
       tolerations:
+        - key: "node-role.kubernetes.io/storage"
+          operator: Exists
         - key: "node.kubernetes.io/unreachable"
           operator: "Exists"
           effect: "NoExecute"
