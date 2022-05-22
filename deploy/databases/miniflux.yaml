@@ -12,7 +12,7 @@ metadata:
   name: miniflux
 spec:
   forProvider:
-    connectionLimit: 20
+    connectionLimit: 50
     privileges:
       login: true
     passwordSecretRef:
