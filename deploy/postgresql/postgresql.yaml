@@ -17,16 +17,16 @@ spec:
   targetNamespace: smol-system
   chart:
     spec:
-      chart: postgresql-ha
-      version: ">=9.0.0 <10.0.0"
+      chart: postgresql
+      version: ">=11.0.0 <12.0.0"
       sourceRef:
         kind: HelmRepository
         name: postgresql
   values:
-    postgresql:
-      replicaCount: 2
-      priorityClassName: smol-critical
+    auth:
       existingSecret: postgresql
+    primary:
+      priorityClassName: smol-critical
       startupProbe:
         enabled: true
         initialDelaySeconds: 60
@@ -40,25 +40,6 @@ spec:
         limits:
           cpu: "500m"
           memory: "4Gi"
-    pgpool:
-      existingSecret: postgresql-postgresql-ha-pgpool
-      authenticationMethod: scram-sha-256
-      extraEnvVars:
-      - name: PGPOOL_ENABLE_POOL_HBA
-        value: no
-      logConnections: true
-      replicaCount: 2
-      priorityClassName: smol-critical
-      podAntiAffinityPreset: hard
-      pdb:
-        create: true
-      resources:
-        requests:
-          cpu: "100m"
-          memory: "64Mi"
-        limits:
-          cpu: "250m"
-          memory: "512Mi"
   interval: 1m
   install:
     remediation:

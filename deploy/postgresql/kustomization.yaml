@@ -3,5 +3,4 @@ kind: Kustomization
 
 resources:
 - postgresql.yaml
-- pgpool-secret.yaml
 - secret.yaml
