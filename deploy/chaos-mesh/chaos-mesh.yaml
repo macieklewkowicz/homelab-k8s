@@ -31,10 +31,6 @@ spec:
           requiredDuringSchedulingIgnoredDuringExecution:
           - labelSelector:
               matchExpressions:
-              - key: "app.kubernetes.io/instance"
-                operator: In
-                values:
-                  - chaos-mesh
               - key: "app.kubernetes.io/component"
                 operator: In
                 values:
@@ -57,14 +53,10 @@ spec:
           requiredDuringSchedulingIgnoredDuringExecution:
           - labelSelector:
               matchExpressions:
-              - key: "app.kubernetes.io/instance"
-                operator: In
-                values:
-                  - chaos-mesh
               - key: "app.kubernetes.io/component"
                 operator: In
                 values:
-                  - controller-manager
+                  - chaos-dashboard
             topologyKey: "kubernetes.io/hostname"
       ingress:
         enabled: true
