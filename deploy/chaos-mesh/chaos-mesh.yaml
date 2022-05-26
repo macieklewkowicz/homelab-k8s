@@ -46,6 +46,8 @@ spec:
           cpu: 50m
           memory: 512Mi
     dashboard:
+      service:
+        type: ClusterIP
       priorityClassName: smol-system
       replicaCount: 2
       affinity:
