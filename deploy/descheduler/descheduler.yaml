@@ -33,6 +33,11 @@ spec:
         memory: 256Mi
     deschedulerPolicy:
       strategies:
+        PodLifeTime:
+          enabled: true
+          params:
+            podLifeTime:
+              maxPodLifeTimeSeconds: 604800 # pods run for a maximum of 7 days
         LowNodeUtilization:
           params:
             nodeResourceUtilizationThresholds:
