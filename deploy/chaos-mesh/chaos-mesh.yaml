@@ -26,6 +26,13 @@ spec:
     controllerManager:
       priorityClassName: smol-additional
       replicaCount: 2
+      resources:
+        limits:
+          cpu: 100m
+          memory: 128Mi
+        requests:
+          cpu: 50m
+          memory: 64Mi
       affinity:
         podAntiAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
@@ -40,16 +47,23 @@ spec:
       priorityClassName: smol-additional
       resources:
         limits:
-          cpu: 250m
-          memory: 1024Mi
+          cpu: 100m
+          memory: 128Mi
         requests:
           cpu: 50m
-          memory: 512Mi
+          memory: 64Mi
     dashboard:
       service:
         type: ClusterIP
       priorityClassName: smol-system
       replicaCount: 2
+      resources:
+        limits:
+          cpu: 100m
+          memory: 128Mi
+        requests:
+          cpu: 50m
+          memory: 64Mi
       affinity:
         podAntiAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
