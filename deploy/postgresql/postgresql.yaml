@@ -33,13 +33,17 @@ spec:
       podAntiAffinityPreset: hard
       pdb:
         create: true
+      tolerations:
+        - key: "node-role.kubernetes.io/storage"
+          operator: Exists
+
       resources:
         requests:
           cpu: "250m"
-          memory: "512Mi"
+          memory: "1Gi"
         limits:
-          cpu: "500m"
-          memory: "4Gi"
+          cpu: "250m"
+          memory: "1Gi"
   interval: 1m
   install:
     remediation:
