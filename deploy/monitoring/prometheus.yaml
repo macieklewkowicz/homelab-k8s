@@ -50,7 +50,28 @@ spec:
       enabled: false
     prometheus-node-exporter:
       priorityClassName: smol-critical
+      resources:
+        requests:
+          cpu: 50m
+          memory: 64Mi
+        limits:
+          cpu: 100m
+          memory: 128Mi
     kube-state-metrics:
       priorityClassName: smol-critical
+      resources:
+        requests:
+          cpu: 50m
+          memory: 64Mi
+        limits:
+          cpu: 100m
+          memory: 128Mi
     grafana:
       priorityClassName: smol-critical
+      resources:
+        requests:
+          cpu: 250m
+          memory: 256Mi
+        limits:
+          cpu: 500m
+          memory: 512Mi
