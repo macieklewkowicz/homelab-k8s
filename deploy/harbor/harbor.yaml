@@ -30,6 +30,9 @@ spec:
           core: harbor.k8s.lan
           notary: notary.harbor.k8s.lan
     core:
+      tolerations:
+        - key: "node-role.kubernetes.io/storage"
+          operator: Exists
       resources:
         limits:
           cpu: 500m
@@ -38,6 +41,9 @@ spec:
           cpu: 100m
           memory: 256Mi
     chartmuseum:
+      tolerations:
+        - key: "node-role.kubernetes.io/storage"
+          operator: Exists
       resources:
         limits:
           cpu: 500m
@@ -79,6 +85,9 @@ spec:
           cpu: 100m
           memory: 256Mi
     registry:
+      tolerations:
+        - key: "node-role.kubernetes.io/storage"
+          operator: Exists
       resources:
         limits:
           cpu: 500m
@@ -96,8 +105,14 @@ spec:
           memory: 256Mi
     database:
       type: internal
+      tolerations:
+        - key: "node-role.kubernetes.io/storage"
+          operator: Exists
     redis:
       type: internal
+      tolerations:
+        - key: "node-role.kubernetes.io/storage"
+          operator: Exists
   interval: 1m
   install:
     remediation:
