@@ -4,3 +4,5 @@ resources:
 - auth.yaml
 - rbac.yaml
 - sync.yaml
+- limitrange.yaml
+- resourcequota.yaml
