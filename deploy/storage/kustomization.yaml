@@ -4,5 +4,6 @@ kind: Kustomization
 resources:
 - ceph-priorityclass.yaml
 - ceph-cluster.yaml
+- ceph-objectstore.yaml
 - ceph-filesystem.yaml
 - ceph-storageclass.yaml
