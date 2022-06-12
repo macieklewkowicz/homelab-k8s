@@ -15,6 +15,7 @@ spec:
   gateway:
     port: 80
     instances: 3
+    priorityClassName: rook-ceph
     placement:
       tolerations:
       - key: node-role.kubernetes.io/storage
