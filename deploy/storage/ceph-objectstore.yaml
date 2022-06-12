@@ -16,6 +16,13 @@ spec:
     port: 80
     instances: 3
     priorityClassName: rook-ceph
+    resources:
+      requests:
+        cpu: "100m"
+        memory: "256Mi"
+      limits:
+        cpu: "250m"
+        memory: "512Mi"
     placement:
       tolerations:
       - key: node-role.kubernetes.io/storage
