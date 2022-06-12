@@ -14,5 +14,19 @@ spec:
       size: 2
   gateway:
     port: 80
-    securePort: 443
     instances: 3
+    placement:
+      tolerations:
+      - key: node-role.kubernetes.io/storage
+        operator: Exists
+      podAntiAffinity:
+        preferredDuringSchedulingIgnoredDuringExecution:
+        - weight: 100
+          podAffinityTerm:
+            labelSelector:
+              matchExpressions:
+              - key: "app.kubernetes.io/name"
+                operator: In
+                values:
+                  - ceph-rgw
+            topologyKey: "kubernetes.io/hostname"
