@@ -6,5 +6,6 @@ resources:
 - ceph-cluster.yaml
 - ceph-objectstore.yaml
 - ceph-objectstore-ingress.yaml
+- ceph-objectstore-user.yaml
 - ceph-filesystem.yaml
 - ceph-storageclass.yaml
