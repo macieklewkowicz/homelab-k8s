@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: rgw-main
+  namespace: rook-ceph
+spec:
+  rules:
+  - host: s3.smol.lan
+    http:
+      paths:
+      - path: "/"
+        pathType: Prefix
+        backend:
+          service:
+            name: rook-ceph-rgw-main
+            port:
+              number: 80
