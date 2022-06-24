@@ -26,6 +26,18 @@ spec:
         cpu: "1000m"
         memory: "8Gi"
     placement:
+      tolerations:
+      - key: node-role.kubernetes.io/storage
+        operator: Exists
+      nodeAffinity:
+        preferredDuringSchedulingIgnoredDuringExecution:
+        - weight: 100
+          preference:
+            matchExpressions:
+            - key: smol.k8s.lan/storage
+              operator: In
+              values:
+              - prefer
       podAntiAffinity:
         requiredDuringSchedulingIgnoredDuringExecution:
         - labelSelector:
