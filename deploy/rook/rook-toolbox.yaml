@@ -30,6 +30,15 @@ spec:
       dnsPolicy: ClusterFirstWithHostNet
       priorityClassName: rook-ceph
       affinity:
+        nodeAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 100
+            preference:
+              matchExpressions:
+              - key: smol.k8s.lan/storage
+                operator: In
+                values:
+                - prefer
         podAntiAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
           - labelSelector:
