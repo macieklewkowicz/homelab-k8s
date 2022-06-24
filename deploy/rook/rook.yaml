@@ -38,6 +38,12 @@ spec:
       enableRBDSnapshotter: false
       pluginPriorityClassName: rook-ceph
       provisionerPriorityClassName: rook-ceph
+      pluginTolerations:
+        - key: "node-role.kubernetes.io/storage"
+          operator: Exists
+      provisionerTolerations:
+        - key: "node-role.kubernetes.io/storage"
+          operator: Exists
     tolerations:
       - key: "node-role.kubernetes.io/storage"
         operator: Exists
