@@ -38,6 +38,9 @@ spec:
       enableRBDSnapshotter: false
       pluginPriorityClassName: rook-ceph
       provisionerPriorityClassName: rook-ceph
+    tolerations:
+      - key: "node-role.kubernetes.io/storage"
+        operator: Exists
     resources:
       requests:
         cpu: "500m"
