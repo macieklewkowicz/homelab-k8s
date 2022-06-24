@@ -14,7 +14,7 @@ spec:
       size: 2
   gateway:
     port: 80
-    instances: 3
+    instances: 2
     priorityClassName: rook-ceph
     resources:
       requests:
