@@ -10,6 +10,16 @@ spec:
       tolerations:
         - key: "node-role.kubernetes.io/storage"
           operator: Exists
+      affinity:
+        nodeAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 100
+            preference:
+              matchExpressions:
+              - key: smol.k8s.lan/manager
+                operator: In
+                values:
+                - prefer
       containers:
         - name: manager
           resources:
