@@ -39,15 +39,13 @@ spec:
                 operator: In
                 values:
                 - prefer
-        podAntiAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
-          - labelSelector:
-              matchExpressions:
-              - key: "app"
-                operator: In
-                values:
-                  - rook-ceph-tools
-            topologyKey: "kubernetes.io/hostname"
+      topologySpreadConstraints:
+      - maxSkew: 1
+        topologyKey: "kubernetes.io/hostname"
+        whenUnsatisfiable: DoNotSchedule
+        labelSelector:
+          matchLabels:
+            app: rook-ceph-tools
       containers:
       - name: rook-ceph-tools
         image: rook/ceph:master
