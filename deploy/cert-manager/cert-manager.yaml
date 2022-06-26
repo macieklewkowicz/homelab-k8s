@@ -28,3 +28,58 @@ spec:
       retries: 3
   values:
     installCRDs: true
+    tolerations:
+      - key: "node-role.kubernetes.io/storage"
+        operator: Exists
+    affinity:
+      nodeAffinity:
+        preferredDuringSchedulingIgnoredDuringExecution:
+        - weight: 100
+          preference:
+            matchExpressions:
+            - key: smol.k8s.lan/manager
+              operator: In
+              values:
+              - prefer
+    cainjector:
+      tolerations:
+        - key: "node-role.kubernetes.io/storage"
+          operator: Exists
+      affinity:
+        nodeAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 100
+            preference:
+              matchExpressions:
+              - key: smol.k8s.lan/manager
+                operator: In
+                values:
+                - prefer
+    startupapicheck:
+      tolerations:
+        - key: "node-role.kubernetes.io/storage"
+          operator: Exists
+      affinity:
+        nodeAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 100
+            preference:
+              matchExpressions:
+              - key: smol.k8s.lan/manager
+                operator: In
+                values:
+                - prefer
+    webhook:
+      tolerations:
+        - key: "node-role.kubernetes.io/storage"
+          operator: Exists
+      affinity:
+        nodeAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 100
+            preference:
+              matchExpressions:
+              - key: smol.k8s.lan/manager
+                operator: In
+                values:
+                - prefer
