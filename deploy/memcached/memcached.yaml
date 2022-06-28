@@ -24,6 +24,18 @@ spec:
         name: memcached
   values:
     priorityClassName: smol-system
+    tolerations:
+    - key: node-role.kubernetes.io/storage
+      operator: Exists
+    nodeAffinity:
+      preferredDuringSchedulingIgnoredDuringExecution:
+      - weight: 100
+        preference:
+          matchExpressions:
+          - key: smol.k8s.lan/storage
+            operator: In
+            values:
+            - prefer
   interval: 1m
   install:
     remediation:
