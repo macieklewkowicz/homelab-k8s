@@ -23,6 +23,10 @@ spec:
         kind: HelmRepository
         name: harbor
   values:
+    persistence:
+      persistentVolumeClaim:
+        registry:
+          size: 64Gi
     externalURL: https://harbor.k8s.lan
     expose:
       ingress:
