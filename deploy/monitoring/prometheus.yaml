@@ -36,7 +36,19 @@ spec:
       prometheusSpec:
         replicas: 2
         priorityClassName: smol-critical
+        tolerations:
+        - key: node-role.kubernetes.io/storage
+          operator: Exists
         affinity:
+          nodeAffinity:
+            preferredDuringSchedulingIgnoredDuringExecution:
+            - weight: 100
+              preference:
+                matchExpressions:
+                - key: smol.k8s.lan/storage
+                  operator: In
+                  values:
+                  - prefer
           podAntiAffinity:
             requiredDuringSchedulingIgnoredDuringExecution:
             - labelSelector:
