@@ -35,6 +35,7 @@ spec:
           notary: notary.harbor.k8s.lan
     core:
       replicas: 2
+      priorityClassName: smol-system
       tolerations:
         - key: "node-role.kubernetes.io/storage"
           operator: Exists
@@ -91,6 +92,7 @@ spec:
           memory: 256Mi
     registry:
       replicas: 2
+      priorityClassName: smol-system
       tolerations:
         - key: "node-role.kubernetes.io/storage"
           operator: Exists
@@ -111,11 +113,13 @@ spec:
           memory: 256Mi
     database:
       type: internal
+      priorityClassName: smol-system
       tolerations:
         - key: "node-role.kubernetes.io/storage"
           operator: Exists
     redis:
       type: internal
+      priorityClassName: smol-system
       tolerations:
         - key: "node-role.kubernetes.io/storage"
           operator: Exists
