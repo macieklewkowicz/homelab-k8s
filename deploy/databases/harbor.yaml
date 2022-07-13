@@ -1,0 +1,38 @@
+---
+apiVersion: postgresql.sql.crossplane.io/v1alpha1
+kind: Database
+metadata:
+  name: harbor
+spec:
+  forProvider: {}
+---
+apiVersion: postgresql.sql.crossplane.io/v1alpha1
+kind: Role
+metadata:
+  name: harbor
+spec:
+  forProvider:
+    connectionLimit: 50
+    privileges:
+      login: true
+    passwordSecretRef:
+      name: postgres-harbor-connection
+      namespace: media
+      key: password
+  writeConnectionSecretToRef:
+    name: postgres-harbor-role-secret
+    namespace: smol-system
+---
+apiVersion: postgresql.sql.crossplane.io/v1alpha1
+kind: Grant
+metadata:
+  name: harbor
+spec:
+  forProvider:
+    privileges:
+      - CONNECT
+      - TEMPORARY
+    roleRef:
+      name: harbor
+    databaseRef:
+      name: harbor
