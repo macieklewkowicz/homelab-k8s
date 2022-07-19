@@ -26,6 +26,9 @@ spec:
     sentinel:
       enabled: true
       masterSet: harbor
+      startupProbe:
+        enabled: true
+        initialDelaySeconds: 60
   interval: 1m
   install:
     remediation:
