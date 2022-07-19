@@ -119,11 +119,10 @@ spec:
         - key: "node-role.kubernetes.io/storage"
           operator: Exists
     redis:
-      type: internal
-      priorityClassName: smol-system
-      tolerations:
-        - key: "node-role.kubernetes.io/storage"
-          operator: Exists
+      type: external
+      external:
+        addr: "harbor-redis-ha-node-0:6379,harbor-redis-ha-node-1:6379,harbor-redis-ha-node-2:6379,harbor-redis-ha-node-3:6379"
+        sentinelMasterSet: "harbor"
   interval: 1m
   install:
     remediation:
