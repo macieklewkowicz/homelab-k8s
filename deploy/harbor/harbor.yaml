@@ -92,7 +92,7 @@ spec:
           cpu: 100m
           memory: 256Mi
     registry:
-      replicas: 2
+      replicas: 1
       priorityClassName: smol-system
       tolerations:
         - key: "node-role.kubernetes.io/storage"
