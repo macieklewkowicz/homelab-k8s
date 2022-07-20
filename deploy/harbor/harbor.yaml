@@ -34,7 +34,7 @@ spec:
           core: harbor.k8s.lan
           notary: notary.harbor.k8s.lan
     core:
-      replicas: 2
+      replicas: 1
       priorityClassName: smol-system
       tolerations:
         - key: "node-role.kubernetes.io/storage"
@@ -83,7 +83,7 @@ spec:
             cpu: 100m
             memory: 128Mi
     portal:
-      replicas: 2
+      replicas: 1
       resources:
         limits:
           cpu: 500m
@@ -121,7 +121,7 @@ spec:
     redis:
       type: external
       external:
-        addr: "harbor-redis-ha-node-0:6379,harbor-redis-ha-node-1:6379,harbor-redis-ha-node-2:6379"
+        addr: "harbor-redis-ha-node-0.harbor-redis-ha-headless.smol-system.svc.cluster.local:26379,harbor-redis-ha-node-1.harbor-redis-ha-headless.smol-system.svc.cluster.local:26379,harbor-redis-ha-node-2.harbor-redis-ha-headless.smol-system.svc.cluster.local:26379"
         sentinelMasterSet: "harbor"
   interval: 1m
   install:

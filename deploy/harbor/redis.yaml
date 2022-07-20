@@ -23,6 +23,9 @@ spec:
         kind: HelmRepository
         name: harbor-redis
   values:
+    auth:
+      enabled: false
+      sentinel: false
     sentinel:
       enabled: true
       masterSet: harbor
