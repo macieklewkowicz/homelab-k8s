@@ -4,3 +4,4 @@ kind: Kustomization
 resources:
 - harbor.yaml
 - redis.yaml
+- pvc.yaml
