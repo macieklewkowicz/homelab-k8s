@@ -25,8 +25,12 @@ spec:
   values:
     persistence:
       persistentVolumeClaim:
+        chartmuseum:
+          existingClaim: "harbor-chartmuseum-rwx"
+        jobservice:
+          existingClaim: "harbor-jobservice-rwx"
         registry:
-          size: 64Gi
+          existingClaim: "harbor-registry-rwx"
     externalURL: https://harbor.k8s.lan
     expose:
       ingress:
