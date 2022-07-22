@@ -118,10 +118,11 @@ spec:
           memory: 256Mi
     database:
       type: internal
-      priorityClassName: smol-system
-      tolerations:
-        - key: "node-role.kubernetes.io/storage"
-          operator: Exists
+      internal:
+        priorityClassName: smol-system
+        tolerations:
+          - key: "node-role.kubernetes.io/storage"
+            operator: Exists
     redis:
       type: external
       external:
