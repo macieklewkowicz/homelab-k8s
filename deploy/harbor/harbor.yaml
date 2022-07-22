@@ -88,6 +88,9 @@ spec:
             memory: 128Mi
     portal:
       replicas: 1
+      tolerations:
+        - key: "node-role.kubernetes.io/storage"
+          operator: Exists
       resources:
         limits:
           cpu: 500m
