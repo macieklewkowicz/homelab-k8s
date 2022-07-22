@@ -32,6 +32,17 @@ spec:
       startupProbe:
         enabled: true
         initialDelaySeconds: 60
+    replica:
+      tolerations:
+      - key: "node-role.kubernetes.io/storage"
+        operator: Exists
+      topologySpreadConstraints:
+      - maxSkew: 1
+        topologyKey: "kubernetes.io/hostname"
+        whenUnsatisfiable: DoNotSchedule
+        labelSelector:
+          matchLabels:
+            app: rook-ceph-tools
   interval: 1m
   install:
     remediation:
