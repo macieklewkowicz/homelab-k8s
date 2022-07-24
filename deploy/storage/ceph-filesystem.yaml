@@ -18,6 +18,9 @@ spec:
     activeCount: 1
     activeStandby: true
     priorityClassName: rook-ceph
+    livenessProbe:
+      probe:
+        timeoutSeconds: 3
     resources:
       requests:
         cpu: "250m"
