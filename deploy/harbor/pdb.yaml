@@ -1,0 +1,48 @@
+---
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: harbor-core
+  namespace: smol-system
+spec:
+  minAvailable: 1
+  selector:
+    matchLabels:
+      app: harbor
+      component: core
+---
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: harbor-chartmuseum
+  namespace: smol-system
+spec:
+  minAvailable: 1
+  selector:
+    matchLabels:
+      app: harbor
+      component: chartmuseum
+---
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: harbor-portal
+  namespace: smol-system
+spec:
+  minAvailable: 1
+  selector:
+    matchLabels:
+      app: harbor
+      component: portal
+---
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: harbor-registry
+  namespace: smol-system
+spec:
+  minAvailable: 1
+  selector:
+    matchLabels:
+      app: harbor
+      component: registry
