@@ -32,6 +32,13 @@ spec:
       startupProbe:
         enabled: true
         initialDelaySeconds: 60
+      resources:
+        limits:
+          cpu: 500m
+          memory: 1024Mi
+        requests:
+          cpu: 100m
+          memory: 256Mi
     replica:
       tolerations:
       - key: "node-role.kubernetes.io/storage"
