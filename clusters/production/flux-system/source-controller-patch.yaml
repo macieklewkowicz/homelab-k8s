@@ -7,9 +7,6 @@ spec:
   template:
     spec:
       priorityClassName: smol-critical
-      tolerations:
-        - key: "node-role.kubernetes.io/storage"
-          operator: Exists
       affinity:
         nodeAffinity:
           preferredDuringSchedulingIgnoredDuringExecution:
