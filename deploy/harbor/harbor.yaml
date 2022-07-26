@@ -39,7 +39,7 @@ spec:
           notary: notary.harbor.k8s.lan
     core:
       replicas: 2
-      priorityClassName: smol-system
+      priorityClassName: smol-critical
       tolerations:
         - key: "node-role.kubernetes.io/storage"
           operator: Exists
@@ -52,6 +52,7 @@ spec:
           memory: 256Mi
     chartmuseum:
       replicas: 2
+      priorityClassName: smol-critical
       tolerations:
         - key: "node-role.kubernetes.io/storage"
           operator: Exists
@@ -74,6 +75,7 @@ spec:
       enabled: false
     portal:
       replicas: 2
+      priorityClassName: smol-system
       tolerations:
         - key: "node-role.kubernetes.io/storage"
           operator: Exists
@@ -86,7 +88,7 @@ spec:
           memory: 256Mi
     registry:
       replicas: 2
-      priorityClassName: smol-system
+      priorityClassName: smol-critical
       tolerations:
         - key: "node-role.kubernetes.io/storage"
           operator: Exists
