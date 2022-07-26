@@ -71,22 +71,7 @@ spec:
           cpu: 100m
           memory: 256Mi
     notary:
-      server:
-        resources:
-          limits:
-            cpu: 200m
-            memory: 256Mi
-          requests:
-            cpu: 100m
-            memory: 128Mi
-      signer:
-        resources:
-          limits:
-            cpu: 200m
-            memory: 256Mi
-          requests:
-            cpu: 100m
-            memory: 128Mi
+      enabled: false
     portal:
       replicas: 2
       tolerations:
