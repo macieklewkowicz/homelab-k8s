@@ -117,7 +117,7 @@ spec:
     redis:
       type: external
       external:
-        addr: "harbor-redis-ha-node-0.harbor-redis-ha-headless.smol-system.svc.cluster.local:26379,harbor-redis-ha-node-1.harbor-redis-ha-headless.smol-system.svc.cluster.local:26379,harbor-redis-ha-node-2.harbor-redis-ha-headless.smol-system.svc.cluster.local:26379"
+        addr: "harbor-redis-ha:26379"
         sentinelMasterSet: "harbor"
   interval: 1m
   install:
