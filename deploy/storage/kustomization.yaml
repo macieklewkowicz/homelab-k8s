@@ -9,3 +9,4 @@ resources:
 - ceph-objectstore-user.yaml
 - ceph-filesystem.yaml
 - ceph-storageclass.yaml
+- ceph-storageclass-objectstore.yaml
