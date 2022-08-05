@@ -50,6 +50,13 @@ spec:
         labelSelector:
           matchLabels:
             app: rook-ceph-tools
+      resources:
+        limits:
+          cpu: 500m
+          memory: 1024Mi
+        requests:
+          cpu: 100m
+          memory: 256Mi
   interval: 1m
   install:
     remediation:
