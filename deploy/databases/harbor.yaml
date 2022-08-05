@@ -17,7 +17,7 @@ spec:
       login: true
     passwordSecretRef:
       name: postgres-harbor-connection
-      namespace: media
+      namespace: smol-system
       key: password
   writeConnectionSecretToRef:
     name: postgres-harbor-role-secret
