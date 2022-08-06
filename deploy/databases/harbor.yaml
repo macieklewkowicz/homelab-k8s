@@ -1,12 +1,5 @@
 ---
 apiVersion: postgresql.sql.crossplane.io/v1alpha1
-kind: Database
-metadata:
-  name: harbor
-spec:
-  forProvider: {}
----
-apiVersion: postgresql.sql.crossplane.io/v1alpha1
 kind: Role
 metadata:
   name: harbor
@@ -24,9 +17,30 @@ spec:
     namespace: smol-system
 ---
 apiVersion: postgresql.sql.crossplane.io/v1alpha1
+kind: Database
+metadata:
+  name: harbor-registry
+spec:
+  forProvider: {}
+---
+apiVersion: postgresql.sql.crossplane.io/v1alpha1
+kind: Database
+metadata:
+  name: harbor-notaryserver
+spec:
+  forProvider: {}
+---
+apiVersion: postgresql.sql.crossplane.io/v1alpha1
+kind: Database
+metadata:
+  name: harbor-notarysigner
+spec:
+  forProvider: {}
+---
+apiVersion: postgresql.sql.crossplane.io/v1alpha1
 kind: Grant
 metadata:
-  name: harbor
+  name: harbor-registry
 spec:
   forProvider:
     privileges:
@@ -35,4 +49,32 @@ spec:
     roleRef:
       name: harbor
     databaseRef:
+      name: harbor-registry
+---
+apiVersion: postgresql.sql.crossplane.io/v1alpha1
+kind: Grant
+metadata:
+  name: harbor-notaryserver
+spec:
+  forProvider:
+    privileges:
+      - CONNECT
+      - TEMPORARY
+    roleRef:
       name: harbor
+    databaseRef:
+      name: harbor-notaryserver
+---
+apiVersion: postgresql.sql.crossplane.io/v1alpha1
+kind: Grant
+metadata:
+  name: harbor-notarysigner
+spec:
+  forProvider:
+    privileges:
+      - CONNECT
+      - TEMPORARY
+    roleRef:
+      name: harbor
+    databaseRef:
+      name: harbor-notarysigner
