@@ -20,7 +20,7 @@ spec:
     priorityClassName: rook-ceph
     livenessProbe:
       probe:
-        timeoutSeconds: 3
+        timeoutSeconds: 10
     resources:
       requests:
         cpu: "250m"
