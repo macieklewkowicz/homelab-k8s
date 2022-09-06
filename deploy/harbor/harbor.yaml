@@ -112,8 +112,12 @@ spec:
       type: external
       external:
         host: postgresql
-        user: harbor
+        port: 5432
+        username: harbor
         password: hYkQD4KsG-wSf4jAN0MGQx5YjsqLVHNn
+        coreDatabase: harbor-registry
+        notaryServerDatabase: harbor-notaryserver
+        notarySignerDatabase: harbor-notarysigner
       internal:
         priorityClassName: smol-system
         tolerations:
