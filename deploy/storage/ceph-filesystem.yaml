@@ -15,12 +15,13 @@ spec:
   preservePoolsOnDelete: false
   preserveFilesystemOnDelete: true
   metadataServer:
-    activeCount: 1
-    activeStandby: true
+    activeCount: 3
+    activeStandby: false
     priorityClassName: rook-ceph
     livenessProbe:
+      disabled: true
       probe:
-        timeoutSeconds: 60
+        timeoutSeconds: 120
     resources:
       requests:
         cpu: "250m"
