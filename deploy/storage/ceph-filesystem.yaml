@@ -15,7 +15,7 @@ spec:
   preservePoolsOnDelete: false
   preserveFilesystemOnDelete: true
   metadataServer:
-    activeCount: 3
+    activeCount: 2
     activeStandby: false
     priorityClassName: rook-ceph
     livenessProbe:
