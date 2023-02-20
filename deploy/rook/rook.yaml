@@ -23,6 +23,7 @@ spec:
   chart:
     spec:
       chart: rook-ceph
+      version: ">=1.8.0 <1.9.0"
       sourceRef:
         kind: HelmRepository
         name: rook
@@ -31,8 +32,6 @@ spec:
     remediation:
       retries: 3
   values:
-    image:
-      tag: v1.8.1
     csi:
       enableCephfsSnapshotter: false
       enableRBDSnapshotter: false
