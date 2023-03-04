@@ -5,7 +5,7 @@ metadata:
   name: harbor-core
   namespace: smol-system
 spec:
-  minAvailable: 1
+  minAvailable: 0
   selector:
     matchLabels:
       app: harbor
@@ -17,7 +17,7 @@ metadata:
   name: harbor-chartmuseum
   namespace: smol-system
 spec:
-  minAvailable: 1
+  minAvailable: 0
   selector:
     matchLabels:
       app: harbor
@@ -29,7 +29,7 @@ metadata:
   name: harbor-portal
   namespace: smol-system
 spec:
-  minAvailable: 1
+  minAvailable: 0
   selector:
     matchLabels:
       app: harbor
@@ -41,7 +41,7 @@ metadata:
   name: harbor-registry
   namespace: smol-system
 spec:
-  minAvailable: 1
+  minAvailable: 0
   selector:
     matchLabels:
       app: harbor
