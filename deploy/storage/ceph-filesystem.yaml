@@ -15,33 +15,33 @@ spec:
   preservePoolsOnDelete: false
   preserveFilesystemOnDelete: true
   metadataServer:
-    activeCount: 2
+    activeCount: 1
     activeStandby: false
     priorityClassName: rook-ceph
     resources:
       requests:
-        cpu: "250m"
-        memory: "1Gi"
+        cpu: "500m"
+        memory: "2Gi"
       limits:
-        cpu: "1000m"
-        memory: "8Gi"
+        cpu: "500m"
+        memory: "2Gi"
     placement:
       tolerations:
-      - key: node-role.kubernetes.io/storage
-        operator: Exists
+        - key: node-role.kubernetes.io/storage
+          operator: Exists
       nodeAffinity:
         preferredDuringSchedulingIgnoredDuringExecution:
-        - weight: 100
-          preference:
-            matchExpressions:
-            - key: smol.k8s.lan/storage
-              operator: In
-              values:
-              - prefer
+          - weight: 100
+            preference:
+              matchExpressions:
+                - key: smol.k8s.lan/storage
+                  operator: In
+                  values:
+                    - prefer
       topologySpreadConstraints:
-      - maxSkew: 1
-        topologyKey: "topology.kubernetes.io/zone"
-        whenUnsatisfiable: DoNotSchedule
-        labelSelector:
-          matchLabels:
-            app: rook-ceph-mds
+        - maxSkew: 1
+          topologyKey: "topology.kubernetes.io/zone"
+          whenUnsatisfiable: DoNotSchedule
+          labelSelector:
+            matchLabels:
+              app: rook-ceph-mds
