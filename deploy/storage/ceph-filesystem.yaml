@@ -20,10 +20,10 @@ spec:
     priorityClassName: smol-storage
     resources:
       requests:
-        cpu: "500m"
+        cpu: "1000m"
         memory: "4Gi"
       limits:
-        cpu: "500m"
+        cpu: "1000m"
         memory: "4Gi"
     placement:
       tolerations:
