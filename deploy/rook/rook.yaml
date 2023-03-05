@@ -35,8 +35,8 @@ spec:
     csi:
       enableCephfsSnapshotter: false
       enableRBDSnapshotter: false
-      pluginPriorityClassName: rook-ceph
-      provisionerPriorityClassName: rook-ceph
+      pluginpriorityClassName: smol-storage
+      provisionerpriorityClassName: smol-storage
       pluginTolerations:
         - key: "node-role.kubernetes.io/storage"
           operator: Exists

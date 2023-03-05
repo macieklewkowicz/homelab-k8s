@@ -17,7 +17,7 @@ spec:
   metadataServer:
     activeCount: 1
     activeStandby: false
-    priorityClassName: rook-ceph
+    priorityClassName: smol-storage
     resources:
       requests:
         cpu: "500m"
