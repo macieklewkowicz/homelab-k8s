@@ -17,6 +17,8 @@ spec:
   metadataServer:
     activeCount: 1
     activeStandby: false
+    livenessProbe:
+      disabled: true
     priorityClassName: smol-storage
     resources:
       requests:
