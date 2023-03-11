@@ -19,7 +19,7 @@ spec:
     activeStandby: false
     livenessProbe:
       disabled: true
-    priorityClassName: smol-storage
+    priorityClassName: ceph-filesystem
     resources:
       requests:
         cpu: "250m"

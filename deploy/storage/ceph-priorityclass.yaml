@@ -2,15 +2,15 @@
 apiVersion: scheduling.k8s.io/v1
 kind: PriorityClass
 metadata:
-  name: rook-ceph
-value: 1000000000
+  name: ceph-objectstore
+value: 999999000
 globalDefault: false
 description: "This priority class should be used for rook-ceph pods only."
 ---
 apiVersion: scheduling.k8s.io/v1
 kind: PriorityClass
 metadata:
-  name: smol-storage
-value: 1000000000
+  name: ceph-filesystem
+value: 999999000
 globalDefault: false
 description: "This priority class should be used for rook-ceph pods only."

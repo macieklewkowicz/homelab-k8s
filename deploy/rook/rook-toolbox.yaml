@@ -28,7 +28,7 @@ spec:
         app: rook-ceph-tools
     spec:
       dnsPolicy: ClusterFirstWithHostNet
-      priorityClassName: smol-storage
+      priorityClassName: rook-ceph
       affinity:
         nodeAffinity:
           preferredDuringSchedulingIgnoredDuringExecution:

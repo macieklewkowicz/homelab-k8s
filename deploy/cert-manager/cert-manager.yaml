@@ -28,19 +28,7 @@ spec:
       retries: 3
   values:
     installCRDs: true
-    tolerations:
-      - key: "node-role.kubernetes.io/storage"
-        operator: Exists
-    affinity:
-      nodeAffinity:
-        preferredDuringSchedulingIgnoredDuringExecution:
-        - weight: 100
-          preference:
-            matchExpressions:
-            - key: smol.k8s.lan/manager
-              operator: In
-              values:
-              - prefer
+    priorityClassName: smol-network
     resources:
       limits:
         cpu: 100m
@@ -49,58 +37,22 @@ spec:
         cpu: 25m
         memory: 256Mi
     cainjector:
-      tolerations:
-        - key: "node-role.kubernetes.io/storage"
-          operator: Exists
-      affinity:
-        nodeAffinity:
-          preferredDuringSchedulingIgnoredDuringExecution:
-          - weight: 100
-            preference:
-              matchExpressions:
-              - key: smol.k8s.lan/manager
-                operator: In
-                values:
-                - prefer
+      priorityClassName: smol-network
       resources:
         limits:
-          cpu: 100m
+          cpu: 125m
           memory: 256Mi
         requests:
-          cpu: 25m
+          cpu: 125m
           memory: 256Mi
     startupapicheck:
-      tolerations:
-        - key: "node-role.kubernetes.io/storage"
-          operator: Exists
-      affinity:
-        nodeAffinity:
-          preferredDuringSchedulingIgnoredDuringExecution:
-          - weight: 100
-            preference:
-              matchExpressions:
-              - key: smol.k8s.lan/manager
-                operator: In
-                values:
-                - prefer
+      priorityClassName: smol-network
     webhook:
-      tolerations:
-        - key: "node-role.kubernetes.io/storage"
-          operator: Exists
-      affinity:
-        nodeAffinity:
-          preferredDuringSchedulingIgnoredDuringExecution:
-          - weight: 100
-            preference:
-              matchExpressions:
-              - key: smol.k8s.lan/manager
-                operator: In
-                values:
-                - prefer
+      priorityClassName: smol-network
       resources:
         limits:
-          cpu: 100m
+          cpu: 125m
           memory: 256Mi
         requests:
-          cpu: 25m
+          cpu: 125m
           memory: 256Mi

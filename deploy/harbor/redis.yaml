@@ -32,6 +32,7 @@ spec:
       startupProbe:
         enabled: true
         initialDelaySeconds: 60
+      priorityClassName: harbor-redis
       resources:
         limits:
           cpu: 500m
@@ -41,15 +42,16 @@ spec:
           memory: 256Mi
     replica:
       tolerations:
-      - key: "node-role.kubernetes.io/storage"
-        operator: Exists
+        - key: "node-role.kubernetes.io/storage"
+          operator: Exists
       topologySpreadConstraints:
-      - maxSkew: 1
-        topologyKey: "kubernetes.io/hostname"
-        whenUnsatisfiable: DoNotSchedule
-        labelSelector:
-          matchLabels:
-            app: rook-ceph-tools
+        - maxSkew: 1
+          topologyKey: "kubernetes.io/hostname"
+          whenUnsatisfiable: DoNotSchedule
+          labelSelector:
+            matchLabels:
+              app: rook-ceph-tools
+      priorityClassName: harbor-redis
       resources:
         limits:
           cpu: 500m

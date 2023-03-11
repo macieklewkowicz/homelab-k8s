@@ -28,14 +28,14 @@ spec:
       retries: 3
   values:
     prometheusOperator:
-      priorityClassName: smol-system
+      priorityClassName: smol-additional
     prometheus:
       podDisruptionBudget:
         enabled: true
         minAvailable: 1
       prometheusSpec:
         replicas: 2
-        priorityClassName: smol-system
+        priorityClassName: smol-additional
         tolerations:
           - key: node-role.kubernetes.io/storage
             operator: Exists
@@ -61,7 +61,7 @@ spec:
     alertmanager:
       enabled: false
     prometheus-node-exporter:
-      priorityClassName: smol-system
+      priorityClassName: smol-additional
       resources:
         requests:
           cpu: 50m
@@ -70,7 +70,7 @@ spec:
           cpu: 100m
           memory: 128Mi
     kube-state-metrics:
-      priorityClassName: smol-system
+      priorityClassName: smol-additional
       resources:
         requests:
           cpu: 50m
@@ -79,7 +79,7 @@ spec:
           cpu: 100m
           memory: 128Mi
     grafana:
-      priorityClassName: smol-system
+      priorityClassName: smol-additional
       resources:
         requests:
           cpu: 250m

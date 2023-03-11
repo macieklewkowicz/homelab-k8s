@@ -1,0 +1,24 @@
+---
+apiVersion: scheduling.k8s.io/v1
+kind: PriorityClass
+metadata:
+  name: harbor-redis
+value: 999900010
+globalDefault: false
+description: "This priority class should be used for harbor pods only."
+---
+apiVersion: scheduling.k8s.io/v1
+kind: PriorityClass
+metadata:
+  name: harbor-backend
+value: 999900005
+globalDefault: false
+description: "This priority class should be used for harbor pods only."
+---
+apiVersion: scheduling.k8s.io/v1
+kind: PriorityClass
+metadata:
+  name: harbor-frontend
+value: 999900000
+globalDefault: false
+description: "This priority class should be used for harbor pods only."

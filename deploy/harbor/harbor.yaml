@@ -39,7 +39,7 @@ spec:
           notary: notary.harbor.k8s.lan
     core:
       replicas: 1
-      priorityClassName: smol-system
+      priorityClassName: harbor-backend
       tolerations:
         - key: "node-role.kubernetes.io/storage"
           operator: Exists
@@ -52,7 +52,7 @@ spec:
           memory: 256Mi
     chartmuseum:
       replicas: 1
-      priorityClassName: smol-system
+      priorityClassName: harbor-backend
       tolerations:
         - key: "node-role.kubernetes.io/storage"
           operator: Exists
@@ -76,7 +76,7 @@ spec:
       enabled: false
     portal:
       replicas: 1
-      priorityClassName: smol-system
+      priorityClassName: harbor-frontend
       tolerations:
         - key: "node-role.kubernetes.io/storage"
           operator: Exists
@@ -89,7 +89,7 @@ spec:
           memory: 256Mi
     registry:
       replicas: 1
-      priorityClassName: smol-system
+      priorityClassName: harbor-backend
       tolerations:
         - key: "node-role.kubernetes.io/storage"
           operator: Exists
@@ -118,11 +118,6 @@ spec:
         coreDatabase: harbor-registry
         notaryServerDatabase: harbor-notaryserver
         notarySignerDatabase: harbor-notarysigner
-      internal:
-        priorityClassName: smol-system
-        tolerations:
-          - key: "node-role.kubernetes.io/storage"
-            operator: Exists
     redis:
       type: external
       external:

@@ -1,10 +1,11 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-- gotk-components.yaml
-- gotk-sync.yaml
+  - gotk-components.yaml
+  - gotk-sync.yaml
+  - priorityclass.yaml
 patchesStrategicMerge:
-- helm-controller-patch.yaml
-- notification-controller-patch.yaml
-- kustomize-controller-patch.yaml
-- source-controller-patch.yaml
+  - helm-controller-patch.yaml
+  - notification-controller-patch.yaml
+  - kustomize-controller-patch.yaml
+  - source-controller-patch.yaml
