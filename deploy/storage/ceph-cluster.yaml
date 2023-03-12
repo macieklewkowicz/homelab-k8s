@@ -34,32 +34,32 @@ spec:
   resources:
     api:
       requests:
-        cpu: "500m"
+        cpu: "250m"
         memory: "512Mi"
       limits:
-        cpu: "1000m"
-        memory: "1Gi"
+        cpu: "250m"
+        memory: "512Mi"
     mgr:
       requests:
         cpu: "500m"
-        memory: "512Mi"
+        memory: "1Gi"
       limits:
-        cpu: "1000m"
+        cpu: "500m"
         memory: "1Gi"
     mon:
       requests:
-        cpu: "500m"
+        cpu: "250m"
         memory: "512Mi"
       limits:
-        cpu: "1000m"
-        memory: "1Gi"
+        cpu: "250m"
+        memory: "512Mi"
     osd:
       requests:
         cpu: "250m"
-        memory: "1Gi"
+        memory: "512Mi"
       limits:
-        cpu: "1"
-        memory: "4Gi"
+        cpu: "250m"
+        memory: "512Mi"
   priorityClassNames:
     all: rook-ceph
     osd: smol-storage
