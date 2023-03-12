@@ -10,16 +10,19 @@ spec:
       affinity:
         nodeAffinity:
           preferredDuringSchedulingIgnoredDuringExecution:
-          - weight: 100
-            preference:
-              matchExpressions:
-              - key: smol.k8s.lan/manager
-                operator: In
-                values:
-                - prefer
+            - weight: 100
+              preference:
+                matchExpressions:
+                  - key: smol.k8s.lan/manager
+                    operator: In
+                    values:
+                      - prefer
       containers:
         - name: manager
           resources:
             requests:
+              cpu: 250m
+              memory: 512Mi
+            limits:
               cpu: 250m
               memory: 512Mi
