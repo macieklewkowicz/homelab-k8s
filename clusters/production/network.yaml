@@ -2,14 +2,11 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
 kind: Kustomization
 metadata:
-  name: ingress
+  name: network
   namespace: flux-system
 spec:
-  dependsOn:
-  - name: metallb
-  - name: smol
   interval: 1h0m0s
-  path: ./deploy/ingress
+  path: ./deploy/network
   prune: true
   sourceRef:
     kind: GitRepository

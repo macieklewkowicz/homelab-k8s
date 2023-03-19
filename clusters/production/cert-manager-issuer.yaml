@@ -6,7 +6,7 @@ metadata:
   namespace: flux-system
 spec:
   dependsOn:
-  - name: cert-manager
+    - name: network
   interval: 1h0m0s
   path: ./deploy/cert-manager-issuer
   prune: true

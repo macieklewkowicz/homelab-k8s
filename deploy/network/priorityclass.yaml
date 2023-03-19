@@ -1,0 +1,32 @@
+---
+apiVersion: scheduling.k8s.io/v1
+kind: PriorityClass
+metadata:
+  name: smol-network
+value: 999999990
+globalDefault: false
+description: "This priority class should be used for smol-network pods only."
+---
+apiVersion: scheduling.k8s.io/v1
+kind: PriorityClass
+metadata:
+  name: cert-manager
+value: 900000000
+globalDefault: false
+description: "This priority class should be used for cert-manager pods only."
+---
+apiVersion: scheduling.k8s.io/v1
+kind: PriorityClass
+metadata:
+  name: loadbalancer
+value: 900200000
+globalDefault: false
+description: "This priority class should be used for loadbalancer pods only."
+---
+apiVersion: scheduling.k8s.io/v1
+kind: PriorityClass
+metadata:
+  name: ingress
+value: 900100000
+globalDefault: false
+description: "This priority class should be used for ingres pods only."

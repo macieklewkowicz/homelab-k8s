@@ -6,9 +6,9 @@ metadata:
   namespace: flux-system
 spec:
   dependsOn:
-  - name: ingress
-  - name: storage
-  - name: monitoring
+    - name: network
+    - name: storage
+    - name: monitoring
   decryption:
     provider: sops
     secretRef:
@@ -20,4 +20,3 @@ spec:
     kind: GitRepository
     name: flux-system
   validation: none
-
