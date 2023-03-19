@@ -2,7 +2,7 @@ apiVersion: source.toolkit.fluxcd.io/v1beta1
 kind: HelmRepository
 metadata:
   name: crossplane
-  namespace: default
+  namespace: smol-gitops
 spec:
   interval: 5m
   url: https://charts.crossplane.io/stable
@@ -11,10 +11,10 @@ apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: crossplane
-  namespace: default
+  namespace: smol-gitops
 spec:
   releaseName: crossplane
-  targetNamespace: smol-system
+  targetNamespace: smol-gitops
   chart:
     spec:
       chart: crossplane
@@ -22,20 +22,22 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: crossplane
+        namespace: smol-gitops
   values:
+    priorityClassName: smol-gitops
     tolerations:
       - key: "node-role.kubernetes.io/storage"
         operator: Exists
     affinity:
       nodeAffinity:
         preferredDuringSchedulingIgnoredDuringExecution:
-        - weight: 100
-          preference:
-            matchExpressions:
-            - key: smol.k8s.lan/manager
-              operator: In
-              values:
-              - prefer
+          - weight: 100
+            preference:
+              matchExpressions:
+                - key: smol.k8s.lan/manager
+                  operator: In
+                  values:
+                    - prefer
     rbacManager:
       tolerations:
         - key: "node-role.kubernetes.io/storage"
@@ -43,13 +45,13 @@ spec:
       affinity:
         nodeAffinity:
           preferredDuringSchedulingIgnoredDuringExecution:
-          - weight: 100
-            preference:
-              matchExpressions:
-              - key: smol.k8s.lan/manager
-                operator: In
-                values:
-                - prefer
+            - weight: 100
+              preference:
+                matchExpressions:
+                  - key: smol.k8s.lan/manager
+                    operator: In
+                    values:
+                      - prefer
   interval: 1m
   install:
     remediation:

@@ -6,7 +6,7 @@ metadata:
   namespace: flux-system
 spec:
   dependsOn:
-  - name: crossplane
+    - name: storage
   interval: 1h0m0s
   path: ./deploy/databases
   prune: true

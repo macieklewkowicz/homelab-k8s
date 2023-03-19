@@ -2,7 +2,7 @@ apiVersion: source.toolkit.fluxcd.io/v1beta1
 kind: HelmRepository
 metadata:
   name: descheduler
-  namespace: default
+  namespace: smol-gitops
 spec:
   interval: 5m
   url: https://kubernetes-sigs.github.io/descheduler/
@@ -11,10 +11,10 @@ apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: descheduler
-  namespace: default
+  namespace: smol-gitops
 spec:
   releaseName: descheduler
-  targetNamespace: smol-system
+  targetNamespace: kube-system
   chart:
     spec:
       chart: descheduler

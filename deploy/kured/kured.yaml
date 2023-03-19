@@ -2,7 +2,7 @@ apiVersion: source.toolkit.fluxcd.io/v1beta1
 kind: HelmRepository
 metadata:
   name: kubereboot
-  namespace: default
+  namespace: smol-gitops
 spec:
   interval: 5m
   url: https://kubereboot.github.io/charts
@@ -11,10 +11,10 @@ apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: kured
-  namespace: default
+  namespace: smol-gitops
 spec:
   releaseName: kured
-  targetNamespace: smol-critical
+  targetNamespace: kube-system
   chart:
     spec:
       chart: kured
@@ -22,10 +22,11 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: kubereboot
+        namespace: smol-gitops
   values:
     image:
       tag: 1.9.2
-    priorityClassName: smol-cluster
+    priorityClassName: system-node-critical
     resources:
       requests:
         cpu: 50m
