@@ -8,7 +8,6 @@ spec:
   dependsOn:
     - name: network
     - name: storage
-    - name: monitoring
   decryption:
     provider: sops
     secretRef:
