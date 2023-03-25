@@ -69,7 +69,9 @@ spec:
         - key: node-role.kubernetes.io/storage
           operator: Exists
   dashboard:
-    enabled: false
+    enabled: true
+    urlPrefix: /ceph-dashboard
+    ssl: false
   crashCollector:
     disable: true
   storage:
