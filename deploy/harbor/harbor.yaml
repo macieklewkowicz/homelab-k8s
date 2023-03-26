@@ -39,7 +39,6 @@ spec:
           notary: notary.harbor.k8s.lan
     core:
       replicas: 1
-      priorityClassName: harbor-backend
       tolerations:
         - key: "node-role.kubernetes.io/storage"
           operator: Exists
@@ -52,7 +51,6 @@ spec:
           memory: 256Mi
     chartmuseum:
       replicas: 1
-      priorityClassName: harbor-backend
       tolerations:
         - key: "node-role.kubernetes.io/storage"
           operator: Exists
@@ -76,7 +74,6 @@ spec:
       enabled: false
     portal:
       replicas: 1
-      priorityClassName: harbor-frontend
       tolerations:
         - key: "node-role.kubernetes.io/storage"
           operator: Exists
@@ -89,7 +86,6 @@ spec:
           memory: 256Mi
     registry:
       replicas: 1
-      priorityClassName: harbor-backend
       tolerations:
         - key: "node-role.kubernetes.io/storage"
           operator: Exists
