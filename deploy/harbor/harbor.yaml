@@ -119,10 +119,7 @@ spec:
         notaryServerDatabase: harbor-notaryserver
         notarySignerDatabase: harbor-notarysigner
     redis:
-      type: external
-      external:
-        addr: "harbor-redis-ha:26379"
-        sentinelMasterSet: "harbor"
+      type: internal
   interval: 1m
   install:
     remediation:

@@ -4,7 +4,6 @@ kind: Kustomization
 resources:
   - database-connection-secret.yaml
   - harbor.yaml
-  - redis.yaml
   - pdb.yaml
   - pvc.yaml
   - priorityclass.yaml
