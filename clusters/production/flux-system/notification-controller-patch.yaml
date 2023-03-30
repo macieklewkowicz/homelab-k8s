@@ -10,13 +10,18 @@ spec:
         app.kubernetes.io/part-of: flux
     spec:
       priorityClassName: flux-system
-      topologySpreadConstraints:
-        - maxSkew: 1
-          topologyKey: "kubernetes.io/hostname"
-          whenUnsatisfiable: ScheduleAnyway
-          labelSelector:
-            matchLabels:
-              app.kubernetes.io/part-of: flux
+      affinity:
+        podAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+            - weight: 100
+              podAffinityTerm:
+                labelSelector:
+                  matchExpressions:
+                    - key: app.kubernetes.io/part-of
+                      operator: In
+                      values:
+                        - flux
+                topologyKey: kubernetes.io/hostname
       containers:
         - name: manager
           resources:
