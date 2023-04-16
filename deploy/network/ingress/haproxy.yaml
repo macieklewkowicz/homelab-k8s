@@ -40,6 +40,8 @@ spec:
         requests:
           cpu: 100m
           memory: 256Mi
+      startupProbe:
+        failureThreshold: 60
     defaultBackend:
       enabled: false
   interval: 1m
