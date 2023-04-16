@@ -42,6 +42,7 @@ spec:
       tolerations:
         - key: "node-role.kubernetes.io/storage"
           operator: Exists
+      priorityClassName: smol-harbor-backend
       resources:
         limits:
           cpu: 500m
@@ -54,6 +55,7 @@ spec:
       tolerations:
         - key: "node-role.kubernetes.io/storage"
           operator: Exists
+      priorityClassName: smol-harbor-backend
       resources:
         limits:
           cpu: 500m
@@ -63,6 +65,7 @@ spec:
           memory: 256Mi
     jobservice:
       replicas: 1
+      priorityClassName: smol-harbor-backend
       resources:
         limits:
           cpu: 500m
@@ -77,6 +80,7 @@ spec:
       tolerations:
         - key: "node-role.kubernetes.io/storage"
           operator: Exists
+      priorityClassName: smol-harbor-frontend
       resources:
         limits:
           cpu: 500m
@@ -89,6 +93,7 @@ spec:
       tolerations:
         - key: "node-role.kubernetes.io/storage"
           operator: Exists
+      priorityClassName: smol-harbor-backend
       resources:
         limits:
           cpu: 500m
@@ -97,6 +102,7 @@ spec:
           cpu: 100m
           memory: 256Mi
     trivy:
+      priorityClassName: smol-harbor-backend
       resources:
         limits:
           cpu: 500m
@@ -106,6 +112,8 @@ spec:
           memory: 256Mi
     database:
       type: external
+      internal:
+        priorityClassName: smol-harbor-backing
       external:
         host: postgresql
         port: 5432
@@ -116,6 +124,8 @@ spec:
         notarySignerDatabase: harbor-notarysigner
     redis:
       type: internal
+      internal:
+        priorityClassName: smol-harbor-backing
   interval: 1m
   install:
     remediation:
