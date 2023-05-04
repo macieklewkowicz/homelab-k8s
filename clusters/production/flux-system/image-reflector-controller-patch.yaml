@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: image-automation-controller
+  name: image-reflector-controller
   namespace: flux-system
 spec:
   template:

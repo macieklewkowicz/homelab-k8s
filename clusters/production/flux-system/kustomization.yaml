@@ -9,3 +9,5 @@ patchesStrategicMerge:
   - notification-controller-patch.yaml
   - kustomize-controller-patch.yaml
   - source-controller-patch.yaml
+  - image-automation-controller-patch.yaml
+  - image-reflector-controller-patch.yaml
