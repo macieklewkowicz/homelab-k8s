@@ -29,6 +29,7 @@ spec:
   upgrade:
     crds: CreateReplace
   values:
+    priorityClassName: flux-system
     replicaCount: 1
     concurrency: 24
     resources:
