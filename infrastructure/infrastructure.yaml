@@ -1,0 +1,25 @@
+---
+apiVersion: source.toolkit.fluxcd.io/v1beta1
+kind: GitRepository
+metadata:
+  name: infrastructure
+  namespace: flux-system
+spec:
+  interval: 1m0s
+  ref:
+    branch: main
+  url: http://git.k8s.lan/smol/infrastructure.git
+---
+apiVersion: infra.contrib.fluxcd.io/v1alpha1
+kind: Terraform
+metadata:
+  name: infrastructure
+  namespace: flux-system
+spec:
+  approvePlan: disable
+  interval: 1m
+  path: ./
+  sourceRef:
+    kind: GitRepository
+    name: infrastructure
+    namespace: flux-system
