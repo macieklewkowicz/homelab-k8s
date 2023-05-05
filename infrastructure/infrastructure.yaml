@@ -16,7 +16,8 @@ metadata:
   name: infrastructure
   namespace: flux-system
 spec:
-  approvePlan: disable
+  approvePlan: ''
+  storeReadablePlan: human
   interval: 1m
   path: ./
   sourceRef:
