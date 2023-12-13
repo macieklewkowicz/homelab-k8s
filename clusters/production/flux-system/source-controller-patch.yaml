@@ -22,9 +22,6 @@ spec:
                       values:
                         - flux
                 topologyKey: kubernetes.io/hostname
-      tolerations:
-        - key: node-role.kubernetes.io/controller
-          operator: Exists
       containers:
         - name: manager
           resources:
