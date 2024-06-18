@@ -25,7 +25,7 @@ spec:
         namespace: smol-network
   values:
     controller:
-      kind: DaemonSet
+      kind: Deployment
       unprivileged: true
       ingressClassResource:
         name: haproxy
