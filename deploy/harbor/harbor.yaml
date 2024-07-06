@@ -26,11 +26,11 @@ spec:
     persistence:
       persistentVolumeClaim:
         chartmuseum:
-          existingClaim: "harbor-chartmuseum-rwx"
+          existingClaim: "harbor-chartmuseum"
         jobservice:
-          existingClaim: "harbor-jobservice-rwx"
+          existingClaim: "harbor-jobservice"
         registry:
-          existingClaim: "harbor-registry-rwx"
+          existingClaim: "harbor-registry"
     externalURL: https://harbor.k8s.lan
     expose:
       ingress:
