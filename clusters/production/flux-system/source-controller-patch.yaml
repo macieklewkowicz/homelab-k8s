@@ -12,6 +12,9 @@ spec:
         app.kubernetes.io/part-of: flux
     spec:
       priorityClassName: flux-system
+      securityContext:
+        runAsUser: 10001
+        runAsGroup: 10001
       affinity:
         podAffinity:
           preferredDuringSchedulingIgnoredDuringExecution:
@@ -36,3 +39,10 @@ spec:
               cpu: 250m
               memory: 1Gi
               ephemeral-storage: 1Gi
+          securityContext:
+            readOnlyRootFilesystem: true
+            allowPrivilegeEscalation: false
+            runAsNonRoot: true
+            capabilities:
+              drop:
+                - ALL
