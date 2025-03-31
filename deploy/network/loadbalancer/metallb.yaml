@@ -35,9 +35,11 @@ spec:
         requests:
           cpu: 100m
           memory: 128Mi
+          ephemeral-storage: 16Mi
         limits:
           cpu: 200m
           memory: 256Mi
+          ephemeral-storage: 32Mi
       tolerations:
         - key: node-role.kubernetes.io/storage
           operator: Exists
@@ -57,9 +59,11 @@ spec:
         requests:
           cpu: 100m
           memory: 128Mi
+          ephemeral-storage: 16Mi
         limits:
           cpu: 200m
           memory: 256Mi
+          ephemeral-storage: 32Mi
     configInline:
       peers:
         - peer-address: 192.168.1.1
