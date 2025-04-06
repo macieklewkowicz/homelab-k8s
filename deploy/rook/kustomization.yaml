@@ -3,6 +3,5 @@ kind: Kustomization
 
 resources:
   - rook.yaml
-  - rook-toolbox.yaml
   - priorityclass.yaml
   - servicemonitor.yaml
