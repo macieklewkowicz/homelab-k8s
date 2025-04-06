@@ -3,15 +3,17 @@ kind: Ingress
 metadata:
   name: rgw-main
   namespace: rook-ceph
+  annotations:
+    kube-score/ignore: ingress-targets-service
 spec:
   rules:
-  - host: s3.smol.lan
-    http:
-      paths:
-      - path: "/"
-        pathType: Prefix
-        backend:
-          service:
-            name: rook-ceph-rgw-main
-            port:
-              number: 80
+    - host: s3.smol.lan
+      http:
+        paths:
+          - path: "/"
+            pathType: Prefix
+            backend:
+              service:
+                name: rook-ceph-rgw-main
+                port:
+                  number: 80

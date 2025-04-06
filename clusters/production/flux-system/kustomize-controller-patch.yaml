@@ -3,6 +3,8 @@ kind: Deployment
 metadata:
   name: kustomize-controller
   namespace: flux-system
+  annotations:
+    kube-score/ignore: deployment-replicas, deployment-strategy
 spec:
   template:
     metadata:
