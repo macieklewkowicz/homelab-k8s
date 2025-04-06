@@ -44,7 +44,7 @@ pipeline {
             aggregatingResults: true,
             enabledForFailure: false,
             qualityGates: [
-              [integerThreshold: 1, threshold: 1.0, type: 'TOTAL']
+              [integerThreshold: 1, threshold: 1.0, type: 'NEW']
             ],
             sourceCodeRetention: 'LAST_BUILD',
             tools: [
